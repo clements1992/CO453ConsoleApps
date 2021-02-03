@@ -20,7 +20,8 @@ namespace ConsoleAppProject
             Console.WriteLine();
             Console.Beep();
 
-
+            DistanceConverter converter = new DistanceConverter();
+            converter.Run();
         }
     }
 }
