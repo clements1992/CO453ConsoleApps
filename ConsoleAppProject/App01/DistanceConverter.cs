@@ -8,6 +8,7 @@
     /// Alex Clementss
     /// </author>
     /// ///
+    ///
     public class DistanceConverter
     {
 
@@ -27,13 +28,13 @@
         /// This uses a console that allows the user to write and save it as a string, the Convert then changes the String into a double
         /// </summary>
         /// 
-        pirvate void OutputHeading()
+        private void OutputHeading()
         {
                 Console.WriteLine();
                 Console.WriteLine(" -----------------" );
                 Console.WriteLine(" Convert Miles to Feet ");
                 Console.WriteLine(" by Alex Clements");
-                Console.WriteLine(" ------------------ ")
+                Console.WriteLine(" ------------------ ");
         }
 
     /// <summary>
@@ -48,14 +49,14 @@
             
             }
         /// <summary>
-        /// 
+        /// Calculates Feet
         /// </summary>
         private void CalculateFeet()
             {
             feet = miles * 5280;
             }
         /// <summary>
-        /// 
+        /// Outputs Feet
         /// </summary>
         private void OutputFeet()
             {
@@ -63,3 +64,4 @@
             }
     }
 }
+
