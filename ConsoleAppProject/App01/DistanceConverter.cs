@@ -19,6 +19,13 @@
         /// </summary>
         public void Run()
             {
+                
+                Console.WriteLine();
+                Console.WriteLine(" -----------------" );
+                Console.WriteLine(" Convert Miles to Feet ");
+                Console.WriteLine(" by Alex Clements");
+                Console.WriteLine(" ------------------ ")
+
                 InputMiles();
                 CalculateFeet();
                 OutputFeet();
@@ -38,14 +45,14 @@
         /// </summary>
         private void CalculateFeet()
             {
-
+            feet = miles * 5280;
             }
         /// <summary>
         /// 
         /// </summary>
         private void OutputFeet()
             {
-
+            Console.WriteLine(miles + " miles is " + feet + " feet!");
             }
     }
 }
