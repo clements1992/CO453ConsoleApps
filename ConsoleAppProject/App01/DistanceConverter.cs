@@ -4,7 +4,7 @@
     /// Please describe the main features of this App
     /// </summary>
     /// <author>
-    /// Alex Clements
+    /// Alex Clement
     /// </author>
     /// ///
     public class DistanceConverter
