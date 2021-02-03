@@ -15,24 +15,31 @@
 
         private double feet;
         /// <summary>
-        /// 
-        /// </summary>
+        /// The run method runs the application
         public void Run()
-            {
-                
-                Console.WriteLine();
-                Console.WriteLine(" -----------------" );
-                Console.WriteLine(" Convert Miles to Feet ");
-                Console.WriteLine(" by Alex Clements");
-                Console.WriteLine(" ------------------ ")
-
+            {   
+                OutputHeading();
                 InputMiles();
                 CalculateFeet();
                 OutputFeet();
             }
         /// <summary>
-        /// 
+        /// This uses a console that allows the user to write and save it as a string, the Convert then changes the String into a double
         /// </summary>
+        /// 
+        pirvate void OutputHeading()
+        {
+                Console.WriteLine();
+                Console.WriteLine(" -----------------" );
+                Console.WriteLine(" Convert Miles to Feet ");
+                Console.WriteLine(" by Alex Clements");
+                Console.WriteLine(" ------------------ ")
+        }
+
+    /// <summary>
+        /// This uses a console that allows the user to write and save it as a string, the Convert then changes the String into a double
+        /// </summary>
+        /// 
        private void InputMiles()
             {
             Console.Write("Please enter the number of miles > ");
