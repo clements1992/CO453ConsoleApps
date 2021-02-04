@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleAppProject.App01;
+using System;
 
 namespace ConsoleAppProject
 {
@@ -21,7 +22,7 @@ namespace ConsoleAppProject
 
 
             DistanceConverter converter = new DistanceConverter();
-            Converter.Run();
+            converter.Run();
         }
     }
 }

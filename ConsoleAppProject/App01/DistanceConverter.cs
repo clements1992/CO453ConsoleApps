@@ -1,5 +1,5 @@
-﻿namespace ConsoleAppProject.App01
-    using System;
+﻿using System;
+namespace ConsoleAppProject.App01
 {
     /// <summary>
     /// This app changes miles to feet
@@ -11,6 +11,8 @@
     ///
     public class DistanceConverter
     {
+
+        public const int FEET_IN_MILES = 5280;
 
         private double miles;
 
@@ -24,6 +26,7 @@
                 InputMiles();
                 CalculateFeet();
                 OutputFeet();
+                OutputEnding();
             }
 
         /// <summary>
@@ -56,7 +59,7 @@
         /// 
         private void CalculateFeet()
             {
-            feet = miles * 5280;
+            feet = miles * FEET_IN_MILES;
             }
 
         /// <summary>
@@ -67,6 +70,19 @@
             {
             Console.WriteLine(miles + " miles is " + feet + " feet!");
             }
+
+        /// <summary>
+        /// Displays thank you message
+        /// </summary>
+        /// 
+        private void OutputEnding()
+        {
+            Console.WriteLine();
+            Console.WriteLine(" -----------------");
+            Console.WriteLine(" Thank you for using the converter ");
+            Console.WriteLine(" by Alex Clements");
+            Console.WriteLine(" ------------------ ");
+        }
     }
 }
 
