@@ -20,9 +20,9 @@ namespace ConsoleAppProject.App01
         /// <summary>
         /// The run method runs each of the below methods
         /// </summary
-        public void Run()
+        public void ConvertMilesToFeet()
             {   
-                OutputHeading();
+                OutputHeading("Convert Miles To Feet");
                 InputMiles();
                 CalculateFeet();
                 OutputFeet();
@@ -30,14 +30,47 @@ namespace ConsoleAppProject.App01
             }
 
         /// <summary>
+        /// The run method runs each of the below methods
+        /// </summary
+        public void ConvertFeetToMiles()
+        {
+            OutputHeading("Convert Feet To Miles");
+            InputFeet();
+            CalculateMiles();
+            OutputMiles();
+            OutputEnding();
+        }
+
+        private void OutputMiles()
+        {
+                Console.WriteLine();
+                Console.WriteLine(feet + " feet is " + miles + " miles!");
+                Console.WriteLine();
+        }
+        
+        private void CalculateMiles()
+        {    
+                miles = feet / FEET_IN_MILES;
+        }
+
+        private void InputFeet()
+        {
+            Console.Write("Please enter the number of feet > ");
+            string value = Console.ReadLine();
+            feet = Convert.ToDouble(value);
+        }
+
+         
+        
+        /// <summary>
         /// Everytime the run method is used it will print out the OutputHeading
         /// </summary>
         /// 
-        private void OutputHeading()
+        private void OutputHeading(String title)
         {
                 Console.WriteLine();
                 Console.WriteLine(" -----------------" );
-                Console.WriteLine(" Convert Miles to Feet ");
+                Console.WriteLine($" {title} ");
                 Console.WriteLine(" by Alex Clements");
                 Console.WriteLine(" ------------------ ");
         }
@@ -68,8 +101,11 @@ namespace ConsoleAppProject.App01
         /// 
         private void OutputFeet()
             {
+            Console.WriteLine();
             Console.WriteLine(miles + " miles is " + feet + " feet!");
+            Console.WriteLine();
             }
+
 
         /// <summary>
         /// Displays thank you message
