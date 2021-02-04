@@ -2,10 +2,10 @@
     using System;
 {
     /// <summary>
-    /// Please describe the main features of this App
+    /// This app changes miles to feet
     /// </summary>
     /// <author>
-    /// Alex Clementss
+    /// Alex Clements 21922124
     /// </author>
     /// ///
     ///
@@ -25,8 +25,9 @@
                 CalculateFeet();
                 OutputFeet();
             }
+
         /// <summary>
-        /// 
+        /// Everytime the run method is used it will print out the OutputHeading
         /// </summary>
         /// 
         private void OutputHeading()
@@ -38,7 +39,7 @@
                 Console.WriteLine(" ------------------ ");
         }
 
-    /// <summary>
+        /// <summary>
         /// This uses a console that allows the user to write and save it as a string, the Convert then changes the String into a double
         /// </summary>
         /// 
@@ -47,18 +48,21 @@
             Console.Write("Please enter the number of miles > ");
             string value = Console.ReadLine();
             miles = Convert.ToDouble(value);
-            
             }
+
         /// <summary>
         /// Calculates Feet
         /// </summary>
+        /// 
         private void CalculateFeet()
             {
             feet = miles * 5280;
             }
+
         /// <summary>
         /// Outputs Feet
         /// </summary>
+        /// 
         private void OutputFeet()
             {
             Console.WriteLine(miles + " miles is " + feet + " feet!");
