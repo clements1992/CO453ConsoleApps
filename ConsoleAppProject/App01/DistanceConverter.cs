@@ -16,7 +16,8 @@
 
         private double feet;
         /// <summary>
-        /// The run method runs the application
+        /// The run method runs each of the below methods
+        /// </summary
         public void Run()
             {   
                 OutputHeading();
@@ -25,7 +26,7 @@
                 OutputFeet();
             }
         /// <summary>
-        /// This uses a console that allows the user to write and save it as a string, the Convert then changes the String into a double
+        /// 
         /// </summary>
         /// 
         private void OutputHeading()
