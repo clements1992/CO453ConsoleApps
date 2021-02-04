@@ -30,9 +30,9 @@ namespace ConsoleAppProject.App01
         public void MilesToFeet()
             {   
                 OutputHeading("Convert Miles To Feet");
-                InputMiles();
+                miles = InputDistance("Please enter the number of miles > ");
                 CalculateFeet();
-                OutputFeet();
+                OutputDistance(miles, nameof(miles), feet, nameof(feet));
                 OutputEnding();
             }
 
@@ -42,84 +42,57 @@ namespace ConsoleAppProject.App01
         public void FeetToMiles()
         {
             OutputHeading("Convert Feet To Miles");
-            InputFeet();
+            feet = InputDistance("Please enter the number of feet > ");
             CalculateMiles();
-            OutputMiles();
+            OutputDistance(feet, nameof(feet), miles, nameof(miles));
             OutputEnding();
         }
 
         public void MilesToMetres()
         {
             OutputHeading("Convert Miles To Metres");
-            InputMiles();
+            miles = InputDistance("Please enter the number of miles > ");
             CalculateMetres();
-            OutputMetres();
+            OutputDistance(miles, nameof(miles), metres, nameof(metres));
             OutputEnding();
 
         }
 
-        private void OutputMetres()
+        private double InputDistance(string prompt)
         {
-            Console.WriteLine(miles + " miles is " + metres + " Metres!");
+            Console.Write(prompt);
+            string value = Console.ReadLine();
+            return Convert.ToDouble(value);
         }
+
+
 
         private void CalculateMetres()
         {
             metres = miles * METRES_IN_MILES;
         }
 
-        private void OutputMiles()
-        {
-                Console.WriteLine();
-                Console.WriteLine(feet + " feet is " + miles + " miles!");
-                Console.WriteLine();
-        }
-        
         private void CalculateMiles()
-        {    
-                miles = feet / FEET_IN_MILES;
-        }
-
-        private void InputFeet()
         {
-            Console.Write("Please enter the number of feet > ");
-            string value = Console.ReadLine();
-            feet = Convert.ToDouble(value);
+            miles = feet / FEET_IN_MILES;
         }
-
-         
-        
-        
-
-        /// <summary>
-        /// This uses a console that allows the user to write and save it as a string, the Convert then changes the String into a double
-        /// </summary>
-        /// 
-       private void InputMiles()
-            {
-            Console.Write("Please enter the number of miles > ");
-            string value = Console.ReadLine();
-            miles = Convert.ToDouble(value);
-            }
 
         /// <summary>
         /// Calculates Feet
         /// </summary>
         /// 
         private void CalculateFeet()
-            {
+        {
             feet = miles * FEET_IN_MILES;
-            }
+        }
 
-        /// <summary>
-        /// Outputs Feet
-        /// </summary>
-        /// 
-        private void OutputFeet()
+
+
+        private void OutputDistance(
+            double fromDistance, string fromUnit,
+            double toDistance, string toUnit)
             {
-            Console.WriteLine();
-            Console.WriteLine(miles + " miles is " + feet + " feet!");
-            Console.WriteLine();
+            Console.WriteLine($" {fromDistance} {fromUnit} is {toDistance} {toUnit}");
             }
 
 
