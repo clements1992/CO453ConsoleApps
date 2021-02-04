@@ -13,14 +13,21 @@ namespace ConsoleAppProject.App01
     {
 
         public const int FEET_IN_MILES = 5280;
+        
+        public const int METRES_IN_MILES = 1609;
+
+        private double feet;
+
+        private double metres;
 
         private double miles;
 
-        private double feet;
+
+
         /// <summary>
         /// The run method runs each of the below methods
         /// </summary
-        public void ConvertMilesToFeet()
+        public void MilesToFeet()
             {   
                 OutputHeading("Convert Miles To Feet");
                 InputMiles();
@@ -32,13 +39,33 @@ namespace ConsoleAppProject.App01
         /// <summary>
         /// The run method runs each of the below methods
         /// </summary
-        public void ConvertFeetToMiles()
+        public void FeetToMiles()
         {
             OutputHeading("Convert Feet To Miles");
             InputFeet();
             CalculateMiles();
             OutputMiles();
             OutputEnding();
+        }
+
+        public void MilesToMetres()
+        {
+            OutputHeading("Convert Miles To Metres");
+            InputMiles();
+            CalculateMetres();
+            OutputMetres();
+            OutputEnding();
+
+        }
+
+        private void OutputMetres()
+        {
+            Console.WriteLine(miles + " miles is " + metres + " Metres!");
+        }
+
+        private void CalculateMetres()
+        {
+            metres = miles * METRES_IN_MILES;
         }
 
         private void OutputMiles()
@@ -62,18 +89,7 @@ namespace ConsoleAppProject.App01
 
          
         
-        /// <summary>
-        /// Everytime the run method is used it will print out the OutputHeading
-        /// </summary>
-        /// 
-        private void OutputHeading(String title)
-        {
-                Console.WriteLine();
-                Console.WriteLine(" -----------------" );
-                Console.WriteLine($" {title} ");
-                Console.WriteLine(" by Alex Clements");
-                Console.WriteLine(" ------------------ ");
-        }
+        
 
         /// <summary>
         /// This uses a console that allows the user to write and save it as a string, the Convert then changes the String into a double
@@ -108,6 +124,20 @@ namespace ConsoleAppProject.App01
 
 
         /// <summary>
+        /// Everytime the run method is used it will print out the OutputHeading
+        /// </summary>
+        /// 
+        private void OutputHeading(String title)
+        {
+            Console.WriteLine();
+            Console.WriteLine(" -----------------");
+            Console.WriteLine($" {title} ");
+            Console.WriteLine(" by Alex Clements");
+            Console.WriteLine(" ------------------ ");
+        }
+
+
+        /// <summary>
         /// Displays thank you message
         /// </summary>
         /// 
@@ -119,6 +149,7 @@ namespace ConsoleAppProject.App01
             Console.WriteLine(" by Alex Clements");
             Console.WriteLine(" ------------------ ");
         }
+
     }
 }
 
