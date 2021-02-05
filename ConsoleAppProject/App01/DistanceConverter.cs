@@ -28,6 +28,8 @@ namespace ConsoleAppProject.App01
 
         private string fromUnit;
         private string toUnit;
+        private double fromDistance;
+        private double toDistance;
 
         // constructor
         public DistanceConverter()
@@ -42,10 +44,13 @@ namespace ConsoleAppProject.App01
         /// </summary
         public void ConvertDistance()
         {
+
+            OutputHeading($"Converting {fromUnit} to {toUnit}");
+
             fromUnit = SelectUnit("Please select the from distance unit > ");
             toUnit = SelectUnit("Please select the to distance unit > ");
 
-            OutputHeading($"Converting {fromUnit} to {toUnit}");
+            
 
             fromDistance = InputDistance($"Enter the number of {fromUnit} >");
 
@@ -64,9 +69,21 @@ namespace ConsoleAppProject.App01
             {
                 toDistance = fromDistance / FEET_IN_MILES;
             }
-            else if(fromUnit = METRES && toUnit = MILES)
+            else if(fromUnit == METRES && toUnit == MILES)
             {
                 toDistance = fromDistance * METRES_IN_MILES;
+            }
+            else if (fromUnit == MILES && toUnit == METRES)
+            {
+                toDistance = ;
+            }
+            else if (fromUnit == FEET && toUnit == METRES)
+            {
+                toDistance = ;
+            }
+            else if (fromUnit == METRES && toUnit == FEET)
+            {
+                toDistance = ;
             }
         }
 
@@ -108,7 +125,7 @@ namespace ConsoleAppProject.App01
             string choice = Console.ReadLine();
             return choice;
         }
-    }
+   
     
 
         private double InputDistance(string prompt)
@@ -120,12 +137,10 @@ namespace ConsoleAppProject.App01
 
 
 
-        private void OutputDistance(
-            double fromDistance, string fromUnit,
-            double toDistance, string toUnit)
-            {
+        private void OutputDistance()
+        {
             Console.WriteLine($" {fromDistance} {fromUnit} is {toDistance} {toUnit}");
-            }
+        }
 
 
         /// <summary>
