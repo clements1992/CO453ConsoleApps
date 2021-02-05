@@ -2,7 +2,7 @@
 namespace ConsoleAppProject.App01
 {
     /// <summary>
-    /// This app changes miles to feet
+    /// This converts three different metrics
     /// </summary>
     /// <author>
     /// Alex Clements 21922124
@@ -13,9 +13,9 @@ namespace ConsoleAppProject.App01
     {
 
         public const int FEET_IN_MILES = 5280;
-        
+
         public const double METRES_IN_MILES = 1609.34;
-        
+
         public const double FEET_IN_METRES = 3.28084;
 
         public const string FEET = "feet";
@@ -24,7 +24,7 @@ namespace ConsoleAppProject.App01
 
         public const string MILES = "miles";
 
-        // privare attributes
+        // private attributes
 
         private string fromUnit;
         private string toUnit;
@@ -36,64 +36,76 @@ namespace ConsoleAppProject.App01
         {
             fromUnit = MILES;
             toUnit = FEET;
-            }
+        }
 
 
         /// <summary>
-        /// The run method runs each of the below methods
+        /// The convert distance method runs each of the below methods in the order displayed
         /// </summary
         public void ConvertDistance()
         {
+            Console.WriteLine("Welcome to the Converter");
+            Console.WriteLine("By Alex Clements");
 
-            OutputHeading($"Converting {fromUnit} to {toUnit}");
+            fromUnit = SelectUnit(" Please select the from distance unit > ");
+            toUnit = SelectUnit(" Please select the to distance unit > ");
 
-            fromUnit = SelectUnit("Please select the from distance unit > ");
-            toUnit = SelectUnit("Please select the to distance unit > ");
+            Console.WriteLine($" Converting {fromUnit} to {toUnit}");
 
-            
-
-            fromDistance = InputDistance($"Enter the number of {fromUnit} >");
+            fromDistance = InputDistance($"\n Enter the number of {fromUnit} > \n");
 
             CalculateDistance();
 
             OutputDistance();
         }
 
+
+        /// <summary>
+        /// The calculate distance method is called from the convert distance method and contains the math to convert each metric
+        /// </summary
         private void CalculateDistance()
         {
-            if(fromUnit == MILES && toUnit == FEET)
+            if (fromUnit == MILES && toUnit == FEET)
             {
                 toDistance = fromDistance * FEET_IN_MILES;
             }
-            else if(fromUnit == FEET && toUnit == MILES)
+            else if (fromUnit == FEET && toUnit == MILES)
             {
                 toDistance = fromDistance / FEET_IN_MILES;
             }
-            else if(fromUnit == METRES && toUnit == MILES)
+            else if (fromUnit == METRES && toUnit == MILES)
             {
-                toDistance = fromDistance * METRES_IN_MILES;
+                toDistance = fromDistance / METRES_IN_MILES;
             }
             else if (fromUnit == MILES && toUnit == METRES)
             {
-                toDistance = ;
+               toDistance = fromDistance * METRES_IN_MILES;
             }
             else if (fromUnit == FEET && toUnit == METRES)
             {
-                toDistance = ;
+                toDistance = fromDistance / FEET_IN_METRES;
             }
             else if (fromUnit == METRES && toUnit == FEET)
             {
-                toDistance = ;
+                toDistance = fromDistance * FEET_IN_METRES;
             }
         }
 
+        /// <summary>
+        /// The slect unit lets the user choose two metrics/units
+        /// </summary
         private string SelectUnit(string prompt)
         {
             string choice = DisplayChoices(prompt);
 
-            return ExecuteChoices(choice);
+            string unit = ExecuteChoices(choice);
+            Console.WriteLine($" You have chosen {unit}");
+            return unit;
         }
 
+        /// <summary>
+        /// The execute choices assigns 1,2 and 3 to each of the three metrics so the user can type the corresponding number
+        /// </summary
         private static string ExecuteChoices(string choice)
         {
             if (choice.Equals("1"))
@@ -114,6 +126,9 @@ namespace ConsoleAppProject.App01
             return null;
         }
 
+        /// <summary>
+        /// The display choices method displays the numbers 1,2 and 3
+        /// </summary
         private static string DisplayChoices(string prompt)
         {
             Console.WriteLine();
@@ -125,9 +140,10 @@ namespace ConsoleAppProject.App01
             string choice = Console.ReadLine();
             return choice;
         }
-   
-    
 
+        /// <summary>
+        /// The input distance method takes the users requested distance and converts it to a double
+        /// </summary
         private double InputDistance(string prompt)
         {
             Console.Write(prompt);
@@ -135,8 +151,9 @@ namespace ConsoleAppProject.App01
             return Convert.ToDouble(value);
         }
 
-
-
+        /// <summary>
+        /// The output distance displays: the from distance, the from unit, the too distance and the too unit
+        /// </summary
         private void OutputDistance()
         {
             Console.WriteLine($" {fromDistance} {fromUnit} is {toDistance} {toUnit}");
@@ -144,7 +161,7 @@ namespace ConsoleAppProject.App01
 
 
         /// <summary>
-        /// Everytime the run method is used it will print out the OutputHeading
+        /// The output heading displays the title and the creators name
         /// </summary>
         /// 
         private void OutputHeading(String title)
@@ -156,6 +173,7 @@ namespace ConsoleAppProject.App01
             Console.WriteLine(" ------------------ ");
         }
 
+        
 
 
     }
