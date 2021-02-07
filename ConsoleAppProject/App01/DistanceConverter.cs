@@ -123,7 +123,9 @@ namespace ConsoleAppProject.App01
                 return MILES;
             }
 
+            Console.WriteLine("invalid choice");
             return null;
+
         }
 
         /// <summary>
