@@ -92,7 +92,7 @@ namespace ConsoleAppProject.App01
         }
 
         /// <summary>
-        /// The slect unit lets the user choose two metrics/units
+        /// The select unit lets the user choose two metrics/units
         /// </summary
         private string SelectUnit(string prompt)
         {
