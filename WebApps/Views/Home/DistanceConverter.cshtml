@@ -1,0 +1,59 @@
+﻿@model ConsoleAppProject.App01.DistanceConverter
+@using ConsoleAppProject.App01
+@{
+    ViewData["Title"] = "AC Distance Converter";
+}
+
+<header class="text-center jumbotron justify-content-center">
+    <h1>DistanceConverter</h1>
+    <h2>By Alex Clements</h2>
+    <p>This app will convert a distance entered in one unit into the equivalent distance in another unit</p>
+</header>
+
+<form method="post">
+    <h2>Convert From ></h2>
+    <p>
+        <label>From Unit ></label>
+        <select asp-for="@Model.FromUnit" required asp-items="@Html.GetEnumSelectList<DistanceUnits>()">
+        </select>
+    </p>
+    <p>
+        @if (Model.FromDistance == 0)
+        {
+            <input type="text" asp-for="@Model.FromDistance" value="" placeholder="From Distance" required />
+        }
+        else
+        {
+            <input type="text" asp-for="@Model.FromDistance" placeholder="From Distance" required />
+        }
+    </p>
+
+    <h2>Convert to ></h2>
+    <p>
+        <label>To Unit ></label>
+    <select asp-for="@Model.ToUnit" required asp-items="@Html.GetEnumSelectList<DistanceUnits>()">
+        
+    </select>
+        </p>
+
+    <p>
+        @if (Model.ToDistance == 0)
+        {
+            <input type="text" asp-for="@Model.ToDistance" value="" placeholder="To Distance" readonly />
+        }
+        else
+        {
+            <input type="text" asp-for="@Model.ToDistance" value="@Model.ToDistance.ToString("0.00") placeholder="To Distance" readonly />
+        }
+    </p>
+    <p>
+        <button class="btn btn-danger" type="submit">Calculate</button>
+    </p>
+
+</form>
+
+
+
+
+
+
