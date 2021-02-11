@@ -24,18 +24,19 @@ namespace ConsoleAppProject.App01
 
         public const string MILES = "miles";
 
-        // private attributes
+        
 
 
         public double FromDistance { get; set; }
         public double ToDistance { get; set; }
-        public DistanceUnits FromUnit { get; set; }
-        public DistanceUnits ToUnit { get; set; }
+        public string FromUnit { get; set; }
+        public string ToUnit { get; set; }
 
+        // Constrcutor
         public DistanceConverter()
         {
-            FromUnit = DistanceUnits.Miles;
-            ToUnit = DistanceUnits.Feet;
+            FromUnit = MILES;
+            ToUnit = FEET;
         }
 
 
@@ -107,7 +108,7 @@ namespace ConsoleAppProject.App01
         /// <summary>
         /// The execute choices assigns 1,2 and 3 to each of the three metrics so the user can type the corresponding number
         /// </summary
-        private static string ExecuteChoices(string choice)
+        private string ExecuteChoices(string choice)
         {
             if (choice.Equals("1"))
             {

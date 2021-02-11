@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using WebApps.Models;
+using ConsoleAppProject.App01;
 
 namespace WebApps.Controllers
 {
@@ -21,7 +22,7 @@ namespace WebApps.Controllers
         {
             if(converter.FromDistance > 0)
             {
-                converter.CalculateDistance();
+                converter.ConvertDistance();
             }
             return View(converter);
         }
