@@ -20,6 +20,8 @@ namespace ConsoleAppProject.App02
         public const string METRIC = "metric";
         public const string IMPERIAL = "imperial";
 
+        private double index;
+
         private double centimetres;
         private double inches;
         private double kilograms;
@@ -34,11 +36,12 @@ namespace ConsoleAppProject.App02
             Heading();
             SelectUnit();
 
-            if (ExecuteChoices == METRIC)
+            if (SelectUnit == SelectUnit.METRIC)
             {
                 InputMetricHeight();
                 InputMetricWeight();
                 CalculateMetric();
+                
             }
             else
             {
@@ -132,17 +135,25 @@ namespace ConsoleAppProject.App02
 
         private void CalculateImperial()
         {
-
+            index = (pounds / (inches * inches));
         }
 
         private void CalculateMetric()
         {
-
+            index = ((kilograms * 703) / (centimetres * centimetres));
         }
 
-        private void OutputBmi()
-        {
+      //  private void OutputBmi()
+     //   {
+     //       if{
+      //          bmi is IMPERIAL, output imperial bmi
 
+     //       }
+
+     //       else if {
+
+     //           bmi is METRIC, output metric bmi
+     //       }
         }
 
         

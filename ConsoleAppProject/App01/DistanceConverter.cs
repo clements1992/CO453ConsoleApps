@@ -46,8 +46,7 @@ namespace ConsoleAppProject.App01
         /// </summary
         public void ConvertDistance()
         {
-            Console.WriteLine("Welcome to the Converter");
-            Console.WriteLine("By Alex Clements");
+            ConsoleHelper.OutputHeading("Distance Converter");
 
             FromUnit = SelectUnit(" Please select the from distance unit > ");
             ToUnit = SelectUnit(" Please select the to distance unit > ");
@@ -168,14 +167,7 @@ namespace ConsoleAppProject.App01
         /// The output heading displays the title and the creators name
         /// </summary>
         /// 
-        private void OutputHeading(String title)
-        {
-            Console.WriteLine();
-            Console.WriteLine(" -----------------");
-            Console.WriteLine($" {title} ");
-            Console.WriteLine(" by Alex Clements");
-            Console.WriteLine(" ------------------ ");
-        }
+        
 
         
 
