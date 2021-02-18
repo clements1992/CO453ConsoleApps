@@ -24,9 +24,6 @@ namespace ConsoleAppProject.App01
 
         public const string MILES = "miles";
 
-        
-
-
         public double FromDistance { get; set; }
         public double ToDistance { get; set; }
         public string FromUnit { get; set; }
@@ -39,7 +36,10 @@ namespace ConsoleAppProject.App01
             ToUnit = FEET;
         }
 
+        public void newmethod()
+        {
 
+        }
 
         /// <summary>
         /// The convert distance method runs each of the below methods in the order displayed
@@ -162,16 +162,10 @@ namespace ConsoleAppProject.App01
             Console.WriteLine($" {FromDistance} {FromUnit} is {ToDistance} {ToUnit}");
         }
 
-
         /// <summary>
         /// The output heading displays the title and the creators name
         /// </summary>
         /// 
-        
-
-        
-
-
     }
 }
 

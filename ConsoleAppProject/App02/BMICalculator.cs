@@ -34,9 +34,10 @@ namespace ConsoleAppProject.App02
         {
 
             Heading();
-            SelectUnit();
+            string unit = SelectUnit();
 
-            if (SelectUnit == SelectUnit.METRIC)
+
+            if (unit == "metric")
             {
                 InputMetricHeight();
                 InputMetricWeight();
@@ -51,10 +52,11 @@ namespace ConsoleAppProject.App02
             }
 
             OutputBmi();
-
-            Console.WriteLine("Health Message");
-            Console.WriteLine("BAME Message");
+            BameMessage();
+            HealthMessage();
         }
+
+        
 
         private void Heading()
         {
@@ -70,7 +72,7 @@ namespace ConsoleAppProject.App02
 
             string unit = ExecuteChoices(choice);
             Console.WriteLine($" You have chosen {unit}");
-            return unit;
+            return unit.ToLower();
         }
         private static string DisplayChoices()
         {
@@ -115,8 +117,6 @@ namespace ConsoleAppProject.App02
             return Convert.ToDouble(kilograms);
         }
 
-
-
         private double InputImperialHeight()
         {
             Console.Write("Please enter your height in Inches >");
@@ -143,20 +143,28 @@ namespace ConsoleAppProject.App02
             index = ((kilograms * 703) / (centimetres * centimetres));
         }
 
-      //  private void OutputBmi()
-     //   {
-     //       if{
-      //          bmi is IMPERIAL, output imperial bmi
-
-     //       }
-
-     //       else if {
-
-     //           bmi is METRIC, output metric bmi
-     //       }
+        private void OutputBmi()
+        {
+           
+            
         }
 
-        
-        
-    }
+         private void BameMessage()
+            {
+            Console.WriteLine("\n");
+            Console.WriteLine(" If you are Black, Asian or other minority");
+            Console.WriteLine("\n ethnic groups, you have a higher risk");
+            Console.WriteLine("\n");
+            Console.WriteLine("\n Adults 23.0 or more are at increased risk");
+            Console.WriteLine("\n Adults 27.5 or more are at high risk");
+            Console.WriteLine("\n");
+             }
+
+            private void HealthMessage()
+            {
+
+            }
+
+        }
 }
+

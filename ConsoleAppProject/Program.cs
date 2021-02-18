@@ -23,11 +23,13 @@ namespace ConsoleAppProject
             Console.WriteLine("2. BMI Calculator");
             Console.WriteLine("Select your application");
             string choice = Console.ReadLine();
+            
 
             if (choice == "1")
             {
                 DistanceConverter converter = new DistanceConverter();
                 converter.ConvertDistance();
+
 
             }
             else if (choice == "2")
@@ -36,12 +38,6 @@ namespace ConsoleAppProject
                 calculator.Run();
             }
             else Console.WriteLine("Invalid choice");
-
-            
-            
-         
-            
-            
         }
     }
 }
