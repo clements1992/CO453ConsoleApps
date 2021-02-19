@@ -20,15 +20,16 @@ namespace ConsoleAppProject.App02
         public const string METRIC = "metric";
         public const string IMPERIAL = "imperial";
 
-        private double index;
+        public double index;
+        public string who;
 
-        private double centimetres;
-        private double inches;
-        private double kilograms;
-        private double metres;
-        private double pounds;
-        private double stone;
-        private double bmi;
+        public double centimetres;
+        public double inches;
+        public double kilograms;
+        public double metres;
+        public double pounds;
+        public double stone;
+        public double bmi;
 
         public void Run()
         {
@@ -39,24 +40,27 @@ namespace ConsoleAppProject.App02
 
             if (unit == "metric")
             {
-                InputMetricHeight();
-                InputMetricWeight();
+                centimetres = InputMetricHeight();
+                kilograms = InputMetricWeight();
                 CalculateMetric();
-                
+
+
             }
             else
             {
-                InputImperialHeight();
-                InputImperialWeight();
+                inches = InputImperialHeight();
+                pounds = InputImperialWeight();
                 CalculateImperial();
+
             }
 
             OutputBmi();
-            BameMessage();
-            HealthMessage();
+            CalculateWho();
+            OutputWho();
+            OutputWarning();
         }
 
-        
+
 
         private void Heading()
         {
@@ -67,7 +71,7 @@ namespace ConsoleAppProject.App02
         private string SelectUnit()
         {
 
-            Console.WriteLine("Please select metric or imperial units");
+            Console.WriteLine("Please select metric or imperial units > ");
             string choice = DisplayChoices();
 
             string unit = ExecuteChoices(choice);
@@ -91,8 +95,6 @@ namespace ConsoleAppProject.App02
             if (choice.Equals("1"))
             {
                 return METRIC;
-
-
             }
 
             else if (choice.Equals("2"))
@@ -105,66 +107,93 @@ namespace ConsoleAppProject.App02
 
         private double InputMetricHeight()
         {
-            Console.Write("Please enter your height in Centimeters >");
-            string centimeters = Console.ReadLine();
-            return Convert.ToDouble(centimeters);
+            Console.Write("Please enter your height in Centimeters > ");
+            string value = Console.ReadLine();
+            return Convert.ToDouble(value);
         }
 
         private double InputMetricWeight()
         {
-            Console.Write("Please enter your weight in Kilograms >");
-            string kilograms = Console.ReadLine();
-            return Convert.ToDouble(kilograms);
+            Console.Write("Please enter your weight in Kilograms > ");
+            string value = Console.ReadLine();
+            return Convert.ToDouble(value);
         }
 
         private double InputImperialHeight()
         {
-            Console.Write("Please enter your height in Inches >");
-            string inches = Console.ReadLine();
-            return Convert.ToDouble(inches);
+            Console.Write("Please enter your height in Inches > ");
+            string value = Console.ReadLine();
+            return Convert.ToDouble(value);
         }
 
         private double InputImperialWeight()
         {
 
-            Console.Write("Please enter your weight in pounds >");
-            string pounds = Console.ReadLine();
-            return Convert.ToDouble(pounds);
+            Console.Write("Please enter your weight in pounds > ");
+            string value = Console.ReadLine();
+            return Convert.ToDouble(value);
         }
 
 
         private void CalculateImperial()
         {
-            index = (pounds / (inches * inches));
+            index = (double)pounds * 703 / (inches * inches);
         }
 
         private void CalculateMetric()
         {
-            index = ((kilograms * 703) / (centimetres * centimetres));
+            index = (kilograms / (metres * metres));
         }
 
         private void OutputBmi()
         {
-           
-            
+            Console.WriteLine($"Your BMI is {index:0.00}");
         }
 
-         private void BameMessage()
+        private void CalculateWho()
+        {
+            if (index < 18.5)
             {
+                who = "underweight";
+            }
+            else if (index >= 18.5 && index <= 24.9)
+            {
+                who = "healthy";
+            }
+            else if (index >= 25.0 && index <= 29.9)
+            {
+                who = "overweight";
+            }
+            else if (index >= 30.0 && index <= 34.9)
+            {
+                who = "obese level 1";
+            }
+            else if (index >= 35.0 && index <= 39.9)
+            {
+                who = "obese level 2";
+            }
+            else if (index >= 40.0)
+            {
+                who = "obese level 3";
+            }
+        }
+
+        private void OutputWho()
+        {
+            Console.WriteLine("You are classed as being" + who);
+        }
+
+        private void OutputWarning()
+        {
             Console.WriteLine("\n");
-            Console.WriteLine(" If you are Black, Asian or other minority");
-            Console.WriteLine("\n ethnic groups, you have a higher risk");
+            Console.WriteLine(" If you are Black, Asian or other minority ethnic groups, you have a higher risk");
             Console.WriteLine("\n");
             Console.WriteLine("\n Adults 23.0 or more are at increased risk");
+            Console.WriteLine("\n");
             Console.WriteLine("\n Adults 27.5 or more are at high risk");
             Console.WriteLine("\n");
-             }
-
-            private void HealthMessage()
-            {
-
-            }
-
         }
+
+    }
 }
 
