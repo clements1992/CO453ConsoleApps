@@ -34,9 +34,10 @@ namespace ConsoleAppProject
             }
             else if (choice == "2")
             {
-                BMICalculator calculator = new BMICalculator();
-                calculator.Run();
+                BMICalculator converter = new BMICalculator();
+                converter.Run();
             }
+
             else Console.WriteLine("Invalid choice");
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace ConsoleAppProject.App02
+
 {
     public class BMICalculator
     {
@@ -20,16 +21,16 @@ namespace ConsoleAppProject.App02
         public const string METRIC = "metric";
         public const string IMPERIAL = "imperial";
 
-        public double index;
+        public double Index { get; set; }
         public string who;
 
-        public double centimetres;
-        public double inches;
-        public double kilograms;
-        public double metres;
-        public double pounds;
-        public double stone;
-        public double bmi;
+        public double Centimetres;
+        public double Inches;
+        public double Kilograms { get; set; }
+        public double Metres { get; set; }
+        public double Pounds { get; set; }
+        public double Stone { get; set; }
+        public double Bmi { get; set; }
 
         public void Run()
         {
@@ -40,16 +41,16 @@ namespace ConsoleAppProject.App02
 
             if (unit == "metric")
             {
-                centimetres = InputMetricHeight();
-                kilograms = InputMetricWeight();
+                Centimetres = InputMetricHeight();
+                Kilograms = InputMetricWeight();
                 CalculateMetric();
 
 
             }
             else
             {
-                inches = InputImperialHeight();
-                pounds = InputImperialWeight();
+                Inches = InputImperialHeight();
+                Pounds = InputImperialWeight();
                 CalculateImperial();
 
             }
@@ -135,55 +136,55 @@ namespace ConsoleAppProject.App02
         }
 
 
-        private void CalculateImperial()
+        public void CalculateImperial()
         {
-            index = (double)pounds * 703 / (inches * inches);
+            Index = (double)Pounds * 703 / (Inches * Inches);
         }
 
-        private void CalculateMetric()
+        public void CalculateMetric()
         {
-            index = (kilograms / (metres * metres));
+            Index = (Kilograms / (Centimetres * Centimetres));
         }
 
-        private void OutputBmi()
+        public void OutputBmi()
         {
-            Console.WriteLine($"Your BMI is {index:0.00}");
+            Console.WriteLine($"Your BMI is {Index:0.00}");
         }
 
-        private void CalculateWho()
+        public void CalculateWho()
         {
-            if (index < 18.5)
+            if (Index < 18.5)
             {
                 who = "underweight";
             }
-            else if (index >= 18.5 && index <= 24.9)
+            else if (Index >= 18.5 && Index <= 24.9)
             {
                 who = "healthy";
             }
-            else if (index >= 25.0 && index <= 29.9)
+            else if (Index >= 25.0 && Index <= 29.9)
             {
                 who = "overweight";
             }
-            else if (index >= 30.0 && index <= 34.9)
+            else if (Index >= 30.0 && Index <= 34.9)
             {
                 who = "obese level 1";
             }
-            else if (index >= 35.0 && index <= 39.9)
+            else if (Index >= 35.0 && Index <= 39.9)
             {
                 who = "obese level 2";
             }
-            else if (index >= 40.0)
+            else if (Index >= 40.0)
             {
                 who = "obese level 3";
             }
         }
 
-        private void OutputWho()
+        public void OutputWho()
         {
             Console.WriteLine("You are classed as being" + who);
         }
 
-        private void OutputWarning()
+        public void OutputWarning()
         {
             Console.WriteLine("\n");
             Console.WriteLine(" If you are Black, Asian or other minority ethnic groups, you have a higher risk");

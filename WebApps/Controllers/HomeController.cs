@@ -1,12 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
 using WebApps.Models;
 using ConsoleAppProject.App01;
+using ConsoleAppProject.App02;
 
 namespace WebApps.Controllers
 {
@@ -26,8 +22,18 @@ namespace WebApps.Controllers
             }
             return View(converter);
         }
+        [HttpGet]
+        public IActionResult BMICalculator()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult BMICalculator(BMICalculator Bmi)
+        {
+            return View();
+        }
 
-        public IActionResult BmiCalculator()
+        public IActionResult HealthMessage()
         {
             return View();
         }

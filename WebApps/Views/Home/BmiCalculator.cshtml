@@ -1,1 +1,41 @@
-﻿
+﻿@model ConsoleAppProject.App02.BMICalculator
+
+@{
+    ViewData["Title"] = "BMI Calculator";
+}
+
+<h1>BmiCalculator</h1>
+
+<section>
+    <form method="post">
+        <h2>Height</h2>
+        <p>
+            Please enter your current height in whole numbers using metric or imperial units
+        </p>
+        <p>
+            <input type="number" placeholder="Feet" />
+            <input type="number" placeholder="Inches" asp-for="@Model.Index" />
+        </p>
+        <p>
+            <input type="number" placeholder="Centimetres" asp-for="@Model.Centimetres."/>
+        </p>
+
+        <h2>Weight</h2>
+        <p>
+            Please enter your weight in whole numbers using imperial or metric unitss
+        </p>
+        <p>
+            <input type="number" placeholder="Stones" value="" asp-for="@Model.Stone"/>
+            <input type="number" placeholder="Pounds" value="" asp-for="@Model.Pounds"/>
+        </p>
+        <p>
+            <input type="number" placeholder="Kiograms" value="" asp-for="@Model.Kilograms"/>
+        </p>
+        <p>
+            <button class="btn btn-danger" type="submit">Calculate</button>
+        </p>
+    </form>
+
+</section>
+
+
