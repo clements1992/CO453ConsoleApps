@@ -22,11 +22,13 @@ namespace WebApps.Controllers
             }
             return View(converter);
         }
+
         [HttpGet]
         public IActionResult BMICalculator()
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult BMICalculator(BMICalculator Bmi)
         {
