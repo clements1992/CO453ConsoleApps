@@ -59,7 +59,7 @@ namespace ConsoleAppProject.App01
         /// <summary>
         /// The calculate distance method is called from the convert distance method and contains the math to convert each metric
         /// </summary
-        private void CalculateDistance()
+        public void CalculateDistance()
         {
             if (FromUnit == MILES && ToUnit == FEET)
             {
