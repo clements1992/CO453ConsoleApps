@@ -7,6 +7,7 @@ namespace ConsoleAppProject.App02
 {
     public class BMICalculator
     {
+        public const double Metric_Conversion = 703;
         public const double Underweight = 18.5;
         public const double NormalRange = 24.9;
         public const double Overweight = 29.9;
@@ -42,6 +43,7 @@ namespace ConsoleAppProject.App02
             if (unit == "metric")
             {
                 Centimetres = InputMetricHeight();
+                Metres = Centimetres / 100;
                 Kilograms = InputMetricWeight();
                 CalculateMetric();
 
@@ -138,12 +140,12 @@ namespace ConsoleAppProject.App02
 
         public void CalculateImperial()
         {
-            Index = (double)Pounds * 703 / (Inches * Inches);
+            Index = (double)Pounds * Metric_Conversion / (Inches * Inches);
         }
 
         public void CalculateMetric()
         {
-            Index = (Kilograms / (Centimetres * Centimetres));
+            Index = (Kilograms / (Metres * Metres));
         }
 
         public void OutputBmi()
