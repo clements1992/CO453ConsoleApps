@@ -46,6 +46,8 @@ namespace ConsoleAppProject.App03
             Console.WriteLine($" You have chosen {unit}");
             return unit.ToLower();
         }
+
+        // Lets the user choose which of the four methods to do
         private static string DisplayChoices()
         {
             Console.WriteLine();
@@ -60,6 +62,8 @@ namespace ConsoleAppProject.App03
 
             return choice;
         }
+
+        // Executes the users decision
 
         private string ExecuteChoices(string choice)
         {
@@ -87,15 +91,20 @@ namespace ConsoleAppProject.App03
             return null;
         }
 
+        // Allows the user to input the marks for each of the ten students
+
         public void InputMarks()
         {
             throw new NotImplementedException();
         }
 
+        // Outputs the users marks for each of the ten students
         public void OutputMarks()
         {
             throw new NotImplementedException();
         }
+
+        // Converts each mark for each student into a grade
 
         public Grades ConvertToGrade(int mark)
         {
@@ -125,6 +134,8 @@ namespace ConsoleAppProject.App03
             }
         }
 
+        // Calculates the mean total for each student
+
         public void CalculateStats()
         {
             double total = 0;
@@ -136,7 +147,8 @@ namespace ConsoleAppProject.App03
             Mean = total / Marks.Length;
         }
 
-        
+        // Calculates the grade profile for each student
+
         public void CalculateGradeProfile()
         {
             for (int i = 0; i < GradeProfile.Length; i++)
@@ -150,6 +162,8 @@ namespace ConsoleAppProject.App03
                 GradeProfile[(int)grade]++;
             }
         }
+
+        // Outputs the grade profile for each student
 
         private void OutputGradeProfile()
         {
