@@ -25,8 +25,8 @@ namespace ConsoleAppProject.App02
         public double Index { get; set; }
         public string who;
 
-        public double Centimetres;
-        public double Inches;
+        public double Centimetres { get; set; }
+        public double Inches { get; set; }
         public double Kilograms { get; set; }
         public double Metres { get; set; }
         public double Pounds { get; set; }
@@ -35,10 +35,8 @@ namespace ConsoleAppProject.App02
 
         public void Run()
         {
-
             Heading();
             string unit = SelectUnit();
-
 
             if (unit == "metric")
             {
@@ -140,17 +138,23 @@ namespace ConsoleAppProject.App02
 
         public void CalculateImperial()
         {
+            ConsoleHelper.OutputHeading("Body Mass Index Calculator");
             Index = (double)Pounds * Metric_Conversion / (Inches * Inches);
         }
 
         public void CalculateMetric()
         {
+            ConsoleHelper.OutputHeading("Body MAss Index Calculator");
             Index = (Kilograms / (Metres * Metres));
         }
 
-        public void OutputBmi()
+        public string OutputBmi()
         {
-            Console.WriteLine($"Your BMI is {Index:0.00}");
+            StringBuilder message = new StringBuilder("/n");
+
+            message.Append($"Your BMI is {Index:0.00}");
+
+            return message.ToString();
         }
 
         public void CalculateWho()
