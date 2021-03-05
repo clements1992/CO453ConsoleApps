@@ -93,8 +93,10 @@ namespace ConsoleAppProject.App03
                 OutputGradeProfile();
             }
 
+            else
             Console.WriteLine("invalid choice");
-            return null;
+            // Trying to return the user to the display choices menu so they can type in a correct selection. does not work currently
+            return DisplayChoices();
         }
 
         // Allows the user to input the marks for each of the ten students
@@ -116,7 +118,7 @@ namespace ConsoleAppProject.App03
         public void OutputMarks()
         {
             Console.WriteLine("Student Grades > ");
-            Console.WriteLine(StudentGrades);
+            Console.WriteLine(int mark);
         }
 
         // Converts each mark for each student into a grade
