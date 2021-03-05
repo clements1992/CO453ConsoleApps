@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleAppProject;
+using System;
 
 
 namespace ConsoleAppProject.App03
@@ -14,6 +15,10 @@ namespace ConsoleAppProject.App03
         public const int LowestGradeC = 50;
         public const int LowestGradeB = 60;
         public const int LowestGradeA = 70;
+        private bool index;
+
+        // Variables, with get and set method, all public so other classes can use them
+
         public string[] Students { get; set; }
         public int[] Marks { get; set; }
         public int[] GradeProfile { get; set; }
@@ -43,8 +48,9 @@ namespace ConsoleAppProject.App03
             string choice = DisplayChoices();
 
             string unit = ExecuteChoices(choice);
-            Console.WriteLine($" You have chosen {unit}");
-            return unit.ToLower();
+
+            return null;
+            
         }
 
         // Lets the user choose which of the four methods to do
@@ -95,13 +101,22 @@ namespace ConsoleAppProject.App03
 
         public void InputMarks()
         {
-            throw new NotImplementedException();
+            int mark;
+            int index = 0;
+            foreach (string student in Students)
+            {
+                Console.WriteLine(student);
+                mark = (int)ConsoleHelper.InputNumber("Please enter a mark for  " + (student) + " > ", 0, 100);
+                Marks[index] = mark;
+                index++;
+            }
         }
 
         // Outputs the users marks for each of the ten students
         public void OutputMarks()
         {
-            throw new NotImplementedException();
+            Console.WriteLine("Student Grades > ");
+            Console.WriteLine(StudentGrades);
         }
 
         // Converts each mark for each student into a grade

@@ -112,6 +112,7 @@ namespace ConsoleAppProject.App02
             string value = Console.ReadLine();
             return Convert.ToDouble(value);
         }
+        
 
         private double InputMetricWeight()
         {
