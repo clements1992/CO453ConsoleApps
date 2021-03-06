@@ -102,7 +102,9 @@ namespace ConsoleAppProject.App03
 
             else
 
-                Console.WriteLine("invalid choice, please select again");
+            Console.WriteLine();
+            Console.WriteLine("invalid choice, please select again");
+            Console.WriteLine();
             // Trying to return the user to the display choices menu so they can type in a correct selection. does not work currently
             return UserSelect();
         }
@@ -141,7 +143,7 @@ namespace ConsoleAppProject.App03
         public void OutputMarks()
         {
             Console.WriteLine("Student Grades > ");
-            Console.WriteLine(GradeProfile);
+            Console.WriteLine(Marks);
             Console.WriteLine();
         }
 
