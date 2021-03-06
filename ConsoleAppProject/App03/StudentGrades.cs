@@ -50,7 +50,7 @@ namespace ConsoleAppProject.App03
             string unit = ExecuteChoices(choice);
 
             return null;
-            
+
         }
 
         // Lets the user choose which of the four methods to do
@@ -60,7 +60,7 @@ namespace ConsoleAppProject.App03
             Console.WriteLine("1. Input Marks");
             Console.WriteLine("2. Output Marks");
             Console.WriteLine("3. Output Stats");
-            Console.WriteLine("4. Outout Grades Profile");
+            Console.WriteLine("4. Output Grades Profile");
             Console.WriteLine("5. Quit");
             Console.WriteLine();
 
@@ -87,7 +87,7 @@ namespace ConsoleAppProject.App03
 
             else if (choice.Equals("3"))
             {
-                OutputMarks();
+                OutputStats();
             }
 
             else if (choice.Equals("4"))
@@ -102,12 +102,12 @@ namespace ConsoleAppProject.App03
 
             else
 
-            Console.WriteLine("invalid choice, please select again");
+                Console.WriteLine("invalid choice, please select again");
             // Trying to return the user to the display choices menu so they can type in a correct selection. does not work currently
             return DisplayChoices();
         }
 
-     
+
 
         // Quits the program
 
@@ -124,7 +124,7 @@ namespace ConsoleAppProject.App03
             int index = 0;
             foreach (string student in Students)
             {
-                
+
                 mark = (int)ConsoleHelper.InputNumber("Please enter a mark for  " + (student) + " > ", 0, 100);
                 Marks[index] = mark;
                 index++;
@@ -132,15 +132,10 @@ namespace ConsoleAppProject.App03
         }
 
         // Outputs the users marks for each of the ten students
-        public string OutputMarks()
+        public void OutputMarks()
         {
             Console.WriteLine("Student Grades > ");
             Console.WriteLine();
-
-            DisplayChoices();
-            string choice = Console.ReadLine();
-
-            return choice;
         }
 
         // Converts each mark for each student into a grade
@@ -177,22 +172,30 @@ namespace ConsoleAppProject.App03
 
        /* public void CalculateStats()
         {
-            Minimum = Marks[0];
-            Maximum = Marks[0];
-
             double total = 0;
 
-            foreach(int mark in Marks)
+            Minimum = HighestMark;
+            Maximum = 0;
+
+            foreach (int mark in Marks)
             {
+                total = total + mark;
                 if (mark > Maximum) Maximum = mark;
                 if (mark < Minimum) Minimum = mark;
                 total += mark;
             }
             Mean = total / Marks.Length;
-        }*/
+        } */
+        
+
+
+        // is this even needed?
+        public void OutputStats()
+        {
+            throw new Exception();
+        }
 
         // Calculates the grade profile for each student
-
         public void CalculateGradeProfile()
         {
             for (int i = 0; i < GradeProfile.Length; i++)
