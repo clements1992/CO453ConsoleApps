@@ -104,7 +104,7 @@ namespace ConsoleAppProject.App03
 
                 Console.WriteLine("invalid choice, please select again");
             // Trying to return the user to the display choices menu so they can type in a correct selection. does not work currently
-            return DisplayChoices();
+            return UserSelect();
         }
 
 
@@ -118,7 +118,7 @@ namespace ConsoleAppProject.App03
 
         // Allows the user to input the marks for each of the ten students
 
-        public void InputMarks()
+        public string InputMarks()
         {
             int mark;
             int index = 0;
@@ -129,12 +129,19 @@ namespace ConsoleAppProject.App03
                 Marks[index] = mark;
                 index++;
             }
+
+            UserSelect();
+            string choice = Console.ReadLine();
+            return choice;
+
+
         }
 
         // Outputs the users marks for each of the ten students
         public void OutputMarks()
         {
             Console.WriteLine("Student Grades > ");
+            Console.WriteLine(GradeProfile);
             Console.WriteLine();
         }
 
