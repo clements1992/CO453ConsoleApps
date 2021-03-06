@@ -61,6 +61,7 @@ namespace ConsoleAppProject.App03
             Console.WriteLine("2. Output Marks");
             Console.WriteLine("3. Output Stats");
             Console.WriteLine("4. Outout Grades Profile");
+            Console.WriteLine("5. Quit");
 
 
             Console.WriteLine();
@@ -93,10 +94,22 @@ namespace ConsoleAppProject.App03
                 OutputGradeProfile();
             }
 
+            else if (choice.Equals("5"))
+            {
+                Quit();
+            }
+
             else
             Console.WriteLine("invalid choice");
             // Trying to return the user to the display choices menu so they can type in a correct selection. does not work currently
             return DisplayChoices();
+        }
+
+        // Quits the program
+
+        public void Quit()
+        {
+            Environment.Exit(0);
         }
 
         // Allows the user to input the marks for each of the ten students
@@ -118,7 +131,7 @@ namespace ConsoleAppProject.App03
         public void OutputMarks()
         {
             Console.WriteLine("Student Grades > ");
-            Console.WriteLine(mark);
+            Console.WriteLine();
         }
 
         // Converts each mark for each student into a grade
@@ -153,16 +166,21 @@ namespace ConsoleAppProject.App03
 
         // Calculates the mean total for each student
 
-        public void CalculateStats()
+       /* public void CalculateStats()
         {
+            Minimum = Marks[0];
+            Maximum = Marks[0];
+
             double total = 0;
 
             foreach(int mark in Marks)
             {
-                total = total + mark;
+                if (mark > Maximum) Maximum = mark;
+                if (mark < Minimum) Minimum = mark;
+                total += mark;
             }
             Mean = total / Marks.Length;
-        }
+        }*/
 
         // Calculates the grade profile for each student
 
@@ -178,6 +196,7 @@ namespace ConsoleAppProject.App03
                 Grades grade = ConvertToGrade(mark);
                 GradeProfile[(int)grade]++;
             }
+            OutputGradeProfile();
         }
 
         // Outputs the grade profile for each student

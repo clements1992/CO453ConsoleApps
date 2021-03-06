@@ -84,6 +84,19 @@ namespace ConsoleApp.Tests
 
 
         }
+
+        [TestMethod]
+        public void TestMin()
+        {
+            // Arrange
+            StudentGrades.Marks = StatsMarks;
+            int expectedMin = 10;
+
+            // Act
+            StudentGrades.CalculateStats();
+
+            // Assert
+            Assert.AreEqual(expectedMin, StudentGrades.Minimum);        }
     }
 
  
