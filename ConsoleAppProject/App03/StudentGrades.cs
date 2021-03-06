@@ -118,7 +118,7 @@ namespace ConsoleAppProject.App03
         public void OutputMarks()
         {
             Console.WriteLine("Student Grades > ");
-            Console.WriteLine(int mark);
+            Console.WriteLine(mark);
         }
 
         // Converts each mark for each student into a grade
