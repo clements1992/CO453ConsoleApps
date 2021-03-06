@@ -62,6 +62,7 @@ namespace ConsoleAppProject.App03
             Console.WriteLine("3. Output Stats");
             Console.WriteLine("4. Outout Grades Profile");
             Console.WriteLine("5. Quit");
+            Console.WriteLine();
 
 
             Console.WriteLine();
@@ -100,10 +101,13 @@ namespace ConsoleAppProject.App03
             }
 
             else
-            Console.WriteLine("invalid choice");
+
+            Console.WriteLine("invalid choice, please select again");
             // Trying to return the user to the display choices menu so they can type in a correct selection. does not work currently
             return DisplayChoices();
         }
+
+     
 
         // Quits the program
 
@@ -120,7 +124,7 @@ namespace ConsoleAppProject.App03
             int index = 0;
             foreach (string student in Students)
             {
-                Console.WriteLine(student);
+                
                 mark = (int)ConsoleHelper.InputNumber("Please enter a mark for  " + (student) + " > ", 0, 100);
                 Marks[index] = mark;
                 index++;
@@ -128,10 +132,15 @@ namespace ConsoleAppProject.App03
         }
 
         // Outputs the users marks for each of the ten students
-        public void OutputMarks()
+        public string OutputMarks()
         {
             Console.WriteLine("Student Grades > ");
             Console.WriteLine();
+
+            DisplayChoices();
+            string choice = Console.ReadLine();
+
+            return choice;
         }
 
         // Converts each mark for each student into a grade
