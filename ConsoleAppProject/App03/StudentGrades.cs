@@ -25,6 +25,7 @@ namespace ConsoleAppProject.App03
         public double Mean { get; set; }
         public double[] Minimum { get; set; }
         public int[] Maximum { get; set; }
+        public int StatsMarks;
 
         //Constructor for student names//
         public StudentGrades()
@@ -82,7 +83,7 @@ namespace ConsoleAppProject.App03
 
             else if (choice.Equals("2"))
             {
-                OutputMarks();
+               OutputMarks();
             }
 
             else if (choice.Equals("3"))
@@ -140,10 +141,12 @@ namespace ConsoleAppProject.App03
         }
 
         // Outputs the users marks for each of the ten students
+        // Needs to output the student name, their mark (55) and their grade (x-a)
+        // student, mark, Grades
         public void OutputMarks()
         {
             Console.WriteLine("Student Grades > ");
-            Console.WriteLine(Marks);
+            Console.WriteLine();
             Console.WriteLine();
         }
 
@@ -179,19 +182,19 @@ namespace ConsoleAppProject.App03
 
         // Calculates the mean total for each student
 
-       /* public void CalculateStats()
+      /* public void CalculateStats()
         {
-            double total = 0;
+            Minimum = Marks[0];
+            Maximum = Marks[0];
 
-            Minimum = HighestMark;
-            Maximum = 0;
+            double total = 0;
 
             foreach (int mark in Marks)
             {
-                total = total + mark;
                 if (mark > Maximum) Maximum = mark;
                 if (mark < Minimum) Minimum = mark;
                 total += mark;
+               
             }
             Mean = total / Marks.Length;
         } */

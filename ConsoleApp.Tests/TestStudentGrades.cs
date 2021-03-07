@@ -9,6 +9,8 @@ namespace ConsoleApp.Tests
         private readonly StudentGrades converter = new StudentGrades();
 
         private int[] testMarks;
+        private int[] statsMarks;
+
 
         public TestStudentGrades()
         {
@@ -180,7 +182,7 @@ namespace ConsoleApp.Tests
 
 
 
-        /* [TestMethod]
+        [TestMethod]
          public void TestCalculateMean()
         {
             converter.Marks = testMarks;
@@ -188,7 +190,7 @@ namespace ConsoleApp.Tests
             converter.CalculateStats();
 
             Assert.AreEqual(expectedMean, converter.Mean);
-        } */
+        }
 
         [TestMethod]
         public void TestGradeProfile()
@@ -215,19 +217,18 @@ namespace ConsoleApp.Tests
 
         }
 
-        /* [TestMethod]
-        public void TestMin()
+        [TestMethod]
+        public void TestCalculateMin()
         {
-            // Arrange
-            StudentGrades.Marks = StatsMarks;
+
+
+            converter.Marks = statsMarks;
             int expectedMin = 10;
 
-            // Act
-            StudentGrades.CalculateStats();
+            converter.CalculateStats();
 
-            // Assert
-            Assert.AreEqual(expectedMin, StudentGrades.Minimum);        
-        } */
+            Assert.AreEqual(expectedMin, converter.Minimum);
+        }
     }
 
  
