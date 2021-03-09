@@ -106,11 +106,9 @@ namespace ConsoleAppProject.App03
             Console.WriteLine();
             Console.WriteLine("invalid choice, please select again");
             Console.WriteLine();
-            // Trying to return the user to the display choices menu so they can type in a correct selection. does not work currently
+            // Return the user to the display choices menu so they can type in a correct selection. does not work currently
             return UserSelect();
         }
-
-
 
         // Quits the program
 
@@ -146,9 +144,11 @@ namespace ConsoleAppProject.App03
         public void OutputMarks()
         {
             Console.WriteLine("Student Grades > ");
-            Console.WriteLine();
+            Console.WriteLine(StudentGrades);
             Console.WriteLine();
         }
+
+        
 
         // Converts each mark for each student into a grade
 
@@ -206,6 +206,7 @@ namespace ConsoleAppProject.App03
         {
             throw new Exception();
         }
+
 
         // Calculates the grade profile for each student
         public void CalculateGradeProfile()
