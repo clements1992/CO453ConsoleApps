@@ -143,9 +143,13 @@ namespace ConsoleAppProject.App03
         // student, mark, Grades
         public void OutputMarks()
         {
-            Console.WriteLine("Student Grades > ");
+            foreach(var item in Students)
+{
+    Console.WriteLine(item.ToString());
+}
+           /* Console.WriteLine("Student Grades > ");
             Console.WriteLine(StudentGrades);
-            Console.WriteLine();
+            Console.WriteLine(); */
         }
 
         
