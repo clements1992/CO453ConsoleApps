@@ -23,7 +23,7 @@ namespace ConsoleAppProject
             Console.WriteLine("1. Distance Converter");
             Console.WriteLine("2. BMI Calculator");
             Console.WriteLine("3. Student Grades");
-            Console.WriteLine("Select your application");
+            Console.WriteLine("Select your application >");
             string choice = Console.ReadLine();
             
 

@@ -118,7 +118,6 @@ namespace ConsoleAppProject.App03
         }
 
         // Allows the user to input the marks for each of the ten students
-
         public string InputMarks()
         {
             int mark;
@@ -142,17 +141,23 @@ namespace ConsoleAppProject.App03
         // Needs to output the student name, their mark (55) and their grade (x-a)
         // student, mark, Grades
         public void OutputMarks()
-        {
-            foreach(var item in Students)
-{
-    Console.WriteLine(item.ToString());
-}
-           /* Console.WriteLine("Student Grades > ");
-            Console.WriteLine(StudentGrades);
-            Console.WriteLine(); */
-        }
+       /* {
+            int[] Students = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            foreach (var item in Students)
+            {
+                Console.WriteLine(item);
+            }
+        } */
 
-        
+        {
+        foreach(var item in Students)
+         {
+            /* Console.WriteLine("Student Marks >"); */
+            Console.WriteLine(item.ToString());
+         }
+        } 
+
+
 
         // Converts each mark for each student into a grade
 
