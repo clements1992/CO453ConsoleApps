@@ -90,7 +90,7 @@ namespace ConsoleAppProject.App03
 
             else if (choice.Equals("2"))
             {
-               OutputMarks();
+                OutputMarks();
             }
 
             else if (choice.Equals("3"))
@@ -107,6 +107,7 @@ namespace ConsoleAppProject.App03
             {
                 Quit();
             }
+        }
 
         // Quits the program
 
@@ -242,21 +243,22 @@ namespace ConsoleAppProject.App03
         {
             ConsoleHelper.OutputTitle(" The mean average mark is >");
             CalculateStats();
-            Console.WriteLine($"The average mark was > {Mean}");
+            Console.WriteLine($"{Mean}");
         }
 
         private void OutputMax()
         {
             ConsoleHelper.OutputTitle(" The highest mark is >");
             CalculateStats();
-            Console.WriteLine($"The Highest mark was  > {Maximum}");
+            Console.WriteLine($"{Maximum}");
+            Console.WriteLine();
         }
 
         private void OutputMin()
         {
             ConsoleHelper.OutputTitle(" The lowest mark is >");
             CalculateStats();
-            Console.WriteLine($"The Lowest mark was > {Minimum}");
+            Console.WriteLine($"{Minimum}");
         }
     }
 
