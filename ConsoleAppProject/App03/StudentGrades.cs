@@ -197,20 +197,21 @@ namespace ConsoleAppProject.App03
             {
                 if (mark > Maximum) Maximum = mark;
                 if (mark < Minimum) Minimum = mark;
-                total += mark;
-               
+                total = total + mark;
             }
             Mean = total / Marks.Length;
         }
-        
 
 
-        // is this even needed?
+
+
+        // outputs the 3 methods inside
         public void OutputStats()
         {
-            throw new Exception();
+            OutputMean();
+            OutputMin();
+            OutputMax();
         }
-
 
         // Calculates the grade profile for each student
         public void CalculateGradeProfile()
@@ -242,6 +243,26 @@ namespace ConsoleAppProject.App03
                 grade++;
             }
             Console.WriteLine();
+        }
+
+        private void OutputMean()
+        {
+            CalculateStats();
+            Console.WriteLine($"The average mark was > {Mean}");
+
+        }
+
+        private void OutputMax()
+        {
+            CalculateStats();
+            Console.WriteLine($"The Highest mark was  > {Maximum}");
+        }
+
+
+        private void OutputMin()
+        {
+            CalculateStats();
+            Console.WriteLine($"The Lowest mark was > {Minimum}");
         }
     }
 
