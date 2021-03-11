@@ -9,6 +9,8 @@ namespace ConsoleAppProject.App03
 
         // Constants
 
+        public const int NoStudents = 10;
+
         public const int LowestMark = 0;
         public const int HighestMark = 100;
         public const int LowestGradeD = 40;
@@ -23,14 +25,14 @@ namespace ConsoleAppProject.App03
         public int[] Marks { get; set; }
         public int[] GradeProfile { get; set; }
         public double Mean { get; set; }
-        public double[] Minimum { get; set; }
-        public int[] Maximum { get; set; }
+        public double Minimum { get; set; }
+        public int Maximum { get; set; }
         public int StatsMarks;
 
         //Constructor for student names//
         public StudentGrades()
         {
-            Students = new string[]
+            Students = new string[10]
             {
                 "Alex","Matthew","Oliver","Chris","Mark","Olivia","Marilyn","Liam","Leah","Georgia"
             };
@@ -41,17 +43,22 @@ namespace ConsoleAppProject.App03
         // Methods
 
 
-        public string UserSelect()
+        public void UserSelect()
         {
-            Console.WriteLine("Welcome to Student Grades");
-            Console.WriteLine("By Alex Clements");
-            Console.WriteLine("Please select from the following > ");
-            string choice = DisplayChoices();
+            bool carryOn = true;
 
-            string unit = ExecuteChoices(choice);
+            do
+            {
+                Console.WriteLine("Welcome to Student Grades");
+                Console.WriteLine("By Alex Clements");
+                Console.WriteLine("Please select from the following > ");
+                string choice = DisplayChoices();
 
-            return null;
+                ExecuteChoices(choice);
 
+            }   while(carryOn);
+
+            Quit();
         }
 
         // Lets the user choose which of the four methods to do
@@ -74,7 +81,7 @@ namespace ConsoleAppProject.App03
 
         // Executes the users decision
 
-        private string ExecuteChoices(string choice)
+        private void ExecuteChoices(string choice)
         {
             if (choice.Equals("1"))
             {
@@ -106,8 +113,6 @@ namespace ConsoleAppProject.App03
             Console.WriteLine();
             Console.WriteLine("invalid choice, please select again");
             Console.WriteLine();
-            // Return the user to the display choices menu so they can type in a correct selection. does not work currently
-            return UserSelect();
         }
 
         // Quits the program
@@ -122,10 +127,13 @@ namespace ConsoleAppProject.App03
         {
             int mark;
             int index = 0;
+
+            ConsoleHelper.OutputTitle(" Input Student Marks >");
+
             foreach (string student in Students)
             {
 
-                mark = (int)ConsoleHelper.InputNumber("Please enter a mark for  " + (student) + " > ", 0, 100);
+                mark = (int)ConsoleHelper.InputNumber("Please enter a mark for  " + (student) + " > ", 0, HighestMark);
                 Marks[index] = mark;
                 index++;
             }
@@ -138,23 +146,16 @@ namespace ConsoleAppProject.App03
         }
 
         // Outputs the users marks for each of the ten students
-        // Needs to output the student name, their mark (55) and their grade (x-a)
-        // student, mark, Grades
+        // student, mark, Grades. students array only has names, marks array only has marks
+        
         public void OutputMarks()
-       /* {
-            int[] Students = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            foreach (var item in Students)
-            {
-                Console.WriteLine(item);
-            }
-        } */
-
         {
-        foreach(var item in Students)
-         {
-            /* Console.WriteLine("Student Marks >"); */
-            Console.WriteLine(item.ToString());
-         }
+            ConsoleHelper.OutputTitle(" Listing of Student Marks >");
+             for(int index = 0; index < NoStudents; index++)
+             {
+
+                Console.WriteLine($" {Students[index]} {Marks[index]}");
+            }
         } 
 
 
@@ -191,7 +192,7 @@ namespace ConsoleAppProject.App03
 
         // Calculates the mean total for each student
 
-      /* public void CalculateStats()
+      public void CalculateStats()
         {
             Minimum = Marks[0];
             Maximum = Marks[0];
@@ -206,7 +207,7 @@ namespace ConsoleAppProject.App03
                
             }
             Mean = total / Marks.Length;
-        } */
+        }
         
 
 
