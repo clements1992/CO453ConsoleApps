@@ -108,13 +108,6 @@ namespace ConsoleAppProject.App03
                 Quit();
             }
 
-            else
-
-            Console.WriteLine();
-            Console.WriteLine("invalid choice, please select again");
-            Console.WriteLine();
-        }
-
         // Quits the program
 
         public void Quit()
@@ -247,20 +240,21 @@ namespace ConsoleAppProject.App03
 
         private void OutputMean()
         {
+            ConsoleHelper.OutputTitle(" The mean average mark is >");
             CalculateStats();
             Console.WriteLine($"The average mark was > {Mean}");
-
         }
 
         private void OutputMax()
         {
+            ConsoleHelper.OutputTitle(" The highest mark is >");
             CalculateStats();
             Console.WriteLine($"The Highest mark was  > {Maximum}");
         }
 
-
         private void OutputMin()
         {
+            ConsoleHelper.OutputTitle(" The lowest mark is >");
             CalculateStats();
             Console.WriteLine($"The Lowest mark was > {Minimum}");
         }
