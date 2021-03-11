@@ -8,7 +8,7 @@ namespace ConsoleAppProject.App03
     {
 
         // Constants
-
+            // Used in the output marks method, number of students
         public const int NoStudents = 10;
 
         public const int LowestMark = 0;
@@ -20,16 +20,17 @@ namespace ConsoleAppProject.App03
         private bool index;
 
         // Variables, with get and set method, all public so other classes can use them
-
+            // Three arrays are used
         public string[] Students { get; set; }
         public int[] Marks { get; set; }
         public int[] GradeProfile { get; set; }
+
         public double Mean { get; set; }
         public double Minimum { get; set; }
         public int Maximum { get; set; }
         public int StatsMarks;
 
-        //Constructor for student names//
+        //Constructor for student names array
         public StudentGrades()
         {
             Students = new string[10]
@@ -41,8 +42,8 @@ namespace ConsoleAppProject.App03
         }
 
         // Methods
-
-
+        
+        // Display menu, calls DisplayChoices to show the user the menu
         public void UserSelect()
         {
             bool carryOn = true;
@@ -80,7 +81,6 @@ namespace ConsoleAppProject.App03
         }
 
         // Executes the users decision
-
         private void ExecuteChoices(string choice)
         {
             if (choice.Equals("1"))
@@ -110,7 +110,6 @@ namespace ConsoleAppProject.App03
         }
 
         // Quits the program
-
         public void Quit()
         {
             Environment.Exit(0);
@@ -139,7 +138,6 @@ namespace ConsoleAppProject.App03
 
         // Outputs the users marks for each of the ten students
         // student, mark, Grades. students array only has names, marks array only has marks
-        
         public void OutputMarks()
         {
             ConsoleHelper.OutputTitle(" Listing of Student Marks >");
@@ -150,7 +148,6 @@ namespace ConsoleAppProject.App03
         } 
 
         // Converts each mark for each student into a grade
-
         public Grades ConvertToGrade(int mark)
         {
             if (mark >= LowestMark && mark < LowestGradeD)
@@ -180,7 +177,7 @@ namespace ConsoleAppProject.App03
         }
 
         // Calculates the mean total for each student
-      public void CalculateStats()
+        public void CalculateStats()
         {
             Minimum = Marks[0];
             Maximum = Marks[0];
@@ -195,9 +192,6 @@ namespace ConsoleAppProject.App03
             }
             Mean = total / Marks.Length;
         }
-
-
-
 
         // outputs the 3 methods inside
         public void OutputStats()
@@ -224,7 +218,6 @@ namespace ConsoleAppProject.App03
         }
 
         // Outputs the grade profile for each student
-
         private void OutputGradeProfile()
         {
             Grades grade = Grades.X;
@@ -239,6 +232,7 @@ namespace ConsoleAppProject.App03
             Console.WriteLine();
         }
 
+        // Outputs mean average, uses the console helper for the title
         private void OutputMean()
         {
             ConsoleHelper.OutputTitle(" The mean average mark is >");
@@ -246,6 +240,7 @@ namespace ConsoleAppProject.App03
             Console.WriteLine($"{Mean}");
         }
 
+        // Outputs maximum mark, uses the console helper for the title
         private void OutputMax()
         {
             ConsoleHelper.OutputTitle(" The highest mark is >");
@@ -254,6 +249,7 @@ namespace ConsoleAppProject.App03
             Console.WriteLine();
         }
 
+        // Outputs lowest mark, uses the console helper for the title
         private void OutputMin()
         {
             ConsoleHelper.OutputTitle(" The lowest mark is >");
