@@ -141,8 +141,6 @@ namespace ConsoleAppProject.App03
             UserSelect();
             string choice = Console.ReadLine();
             return choice;
-
-
         }
 
         // Outputs the users marks for each of the ten students
@@ -153,12 +151,9 @@ namespace ConsoleAppProject.App03
             ConsoleHelper.OutputTitle(" Listing of Student Marks >");
              for(int index = 0; index < NoStudents; index++)
              {
-
                 Console.WriteLine($" {Students[index]} {Marks[index]}");
             }
         } 
-
-
 
         // Converts each mark for each student into a grade
 
@@ -191,7 +186,6 @@ namespace ConsoleAppProject.App03
         }
 
         // Calculates the mean total for each student
-
       public void CalculateStats()
         {
             Minimum = Marks[0];
@@ -247,7 +241,6 @@ namespace ConsoleAppProject.App03
                 Console.WriteLine($"Grade {grade} {percentage}% Count {count}");
                 grade++;
             }
-
             Console.WriteLine();
         }
     }
