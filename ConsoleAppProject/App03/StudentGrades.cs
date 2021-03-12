@@ -1,12 +1,13 @@
 ﻿using ConsoleAppProject;
 using System;
+using System.Collections.Generic;
+using System.Text;
 
 
 namespace ConsoleAppProject.App03
 {
     public class StudentGrades
     {
-
         // Constants
         // Used in the output marks method, number of students
         public const int NoStudents = 10;
@@ -17,13 +18,14 @@ namespace ConsoleAppProject.App03
         public const int LowestGradeC = 50;
         public const int LowestGradeB = 60;
         public const int LowestGradeA = 70;
-        private bool index;
+
+        public const string GRADEPROFILE = "See the grade profile";
 
         // Variables, with get and set method, all public so other classes can use them
         // Four arrays are used
-        public string[] Students { get; set; }
-        public int[] Marks { get; set; }
-        public int[] GradeProfile { get; set; }
+        public string[] Students;
+        public int[] Marks;
+        public int[] GradeProfile;
         public int[] StatsMarks;
 
         public double Mean { get; set; }
@@ -36,7 +38,7 @@ namespace ConsoleAppProject.App03
         //Constructor for student names array
         public StudentGrades()
         {
-            Students = new string[10]
+            Students = new string[]
             {
                 "Alex","Matthew","Oliver","Chris","Mark","Olivia","Marilyn","Liam","Leah","Georgia"
             };
@@ -103,7 +105,7 @@ namespace ConsoleAppProject.App03
 
             else if (choice.Equals("4"))
             {
-                OutputGradeProfile();
+                CalculateGradeProfile();
             }
 
             else if (choice.Equals("5"))
