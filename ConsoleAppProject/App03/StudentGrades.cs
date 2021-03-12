@@ -8,7 +8,7 @@ namespace ConsoleAppProject.App03
     {
 
         // Constants
-            // Used in the output marks method, number of students
+        // Used in the output marks method, number of students
         public const int NoStudents = 10;
 
         public const int LowestMark = 0;
@@ -20,15 +20,18 @@ namespace ConsoleAppProject.App03
         private bool index;
 
         // Variables, with get and set method, all public so other classes can use them
-            // Three arrays are used
+        // Four arrays are used
         public string[] Students { get; set; }
         public int[] Marks { get; set; }
         public int[] GradeProfile { get; set; }
+        public int[] StatsMarks;
 
         public double Mean { get; set; }
         public double Minimum { get; set; }
         public int Maximum { get; set; }
-        public int StatsMarks;
+
+        public string options;
+
 
         //Constructor for student names array
         public StudentGrades()
@@ -42,7 +45,7 @@ namespace ConsoleAppProject.App03
         }
 
         // Methods
-        
+
         // Display menu, calls DisplayChoices to show the user the menu
         public void UserSelect()
         {
@@ -57,7 +60,7 @@ namespace ConsoleAppProject.App03
 
                 ExecuteChoices(choice);
 
-            }   while(carryOn);
+            } while (carryOn);
 
             Quit();
         }
@@ -141,39 +144,27 @@ namespace ConsoleAppProject.App03
         public void OutputMarks()
         {
             ConsoleHelper.OutputTitle(" Listing of Student Marks >");
-             for(int index = 0; index < NoStudents; index++)
-             {
+            for (int index = 0; index < NoStudents; index++)
+            {
                 Console.WriteLine($" {Students[index]} {Marks[index]}");
             }
-        } 
+        }
 
         // Converts each mark for each student into a grade
         public Grades ConvertToGrade(int mark)
         {
-            if (mark >= LowestMark && mark < LowestGradeD)
-            {
+            if (mark >= 0 && mark < LowestGradeD)
                 return Grades.F;
-            }
-            else if (mark >= LowestMark && mark < LowestGradeC)
-            {
+            else if (mark >= LowestGradeD && mark < LowestGradeC)
                 return Grades.D;
-            }
-            else if (mark >= LowestMark && mark < LowestGradeB)
-            {
+            else if (mark >= LowestGradeC && mark < LowestGradeB)
                 return Grades.C;
-            }
-            else if (mark >= LowestMark && mark < LowestGradeB)
-            {
-                return Grades.C;
-            }
-            else if (mark >= LowestMark && mark < LowestGradeA)
-            {
+            else if (mark >= LowestGradeB && mark < LowestGradeA)
                 return Grades.B;
-            }
-            else
-            {
+            else if (mark >= LowestGradeA && mark < HighestMark)
                 return Grades.A;
-            }
+            else
+                return Grades.X;
         }
 
         // Calculates the mean total for each student
@@ -208,7 +199,6 @@ namespace ConsoleAppProject.App03
             {
                 GradeProfile[i] = 0;
             }
-
             foreach (int mark in Marks)
             {
                 Grades grade = ConvertToGrade(mark);
@@ -217,20 +207,23 @@ namespace ConsoleAppProject.App03
             OutputGradeProfile();
         }
 
+
         // Outputs the grade profile for each student
         private void OutputGradeProfile()
         {
+            ConsoleHelper.OutputHeading("Grade Profile");
             Grades grade = Grades.X;
             Console.WriteLine();
 
-            foreach(int count in GradeProfile)
+            foreach (int count in GradeProfile)
             {
                 int percentage = count * 100 / Marks.Length;
-                Console.WriteLine($"Grade {grade} {percentage}% Count {count}");
                 grade++;
+                Console.WriteLine($"Grade {grade} {percentage}% Count {count}");
             }
             Console.WriteLine();
         }
+
 
         // Outputs mean average, uses the console helper for the title
         private void OutputMean()
@@ -257,7 +250,5 @@ namespace ConsoleAppProject.App03
             Console.WriteLine($"{Minimum}");
         }
     }
-
 }
-
 
