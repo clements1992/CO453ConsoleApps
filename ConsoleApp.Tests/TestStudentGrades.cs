@@ -18,7 +18,13 @@ namespace ConsoleApp.Tests
         {
             10, 20, 30, 40, 50, 60, 70, 80, 90, 100
         };
-        }
+
+
+            statsMarks = new int[]
+                {
+                10,20,30,40,50,60,70,80,90,100
+            };            
+            }
 
         [TestMethod]
         public void TestConvert0ToGradeF()
@@ -212,22 +218,39 @@ namespace ConsoleApp.Tests
             // Assert
 
             Assert.IsTrue(expectedProfile);
-
-
-
         }
 
         [TestMethod]
         public void TestCalculateMin()
         {
-
-
             converter.Marks = statsMarks;
             int expectedMin = 10;
 
             converter.CalculateStats();
 
             Assert.AreEqual(expectedMin, converter.Minimum);
+        }
+
+        [TestMethod]
+        public void TestCalculationMean()
+        {
+
+            converter.Marks = testMarks;
+            double expectedMean = 55.0;
+            converter.CalculateStats();
+
+            Assert.AreEqual(expectedMean, converter.Mean);
+        }
+
+        [TestMethod]
+        public void TestCalculateMax()
+        {
+            converter.Marks = statsMarks;
+            int expectedMax = 100;
+
+            converter.CalculateStats();
+
+            Assert.AreEqual(expectedMax, converter.Maximum);
         }
     }
 
