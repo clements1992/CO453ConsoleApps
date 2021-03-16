@@ -23,7 +23,11 @@ namespace ConsoleAppProject
             Console.WriteLine("1. Distance Converter");
             Console.WriteLine("2. BMI Calculator");
             Console.WriteLine("3. Student Grades");
-            Console.WriteLine("Select your application >");
+            Console.WriteLine("4. Social Network");
+            Console.WriteLine("5. RPG Game");
+            Console.WriteLine(" ==================== ");
+            Console.WriteLine("  Select your application > ");
+            Console.WriteLine(" ==================== ");
             string choice = Console.ReadLine();
             
 
@@ -44,6 +48,16 @@ namespace ConsoleAppProject
             {
                 StudentGrades converter = new StudentGrades();
                 converter.UserSelect();
+            }
+
+            else if (choice == "4")
+            {
+                throw new Exception();
+            }
+
+            else if (choice == "5")
+            {
+                throw new Exception();
             }
 
             else Console.WriteLine("Invalid choice");
