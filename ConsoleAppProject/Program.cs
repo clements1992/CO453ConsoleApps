@@ -26,7 +26,7 @@ namespace ConsoleAppProject
             Console.WriteLine("4. Social Network");
             Console.WriteLine("5. RPG Game");
             Console.WriteLine(" ==================== ");
-            Console.WriteLine("  Select your application > ");
+            Console.WriteLine(" Select your application > ");
             Console.WriteLine(" ==================== ");
             string choice = Console.ReadLine();
             
