@@ -6,10 +6,15 @@ using System.Text;
 
 namespace ConsoleAppProject.App03
 {
+    /// <summary>
+    /// Student Grades class, includes all varibales, arrays and methods
+    /// </summary>
     public class StudentGrades
     {
-        // Constants
-        // Used in the output marks method, number of students
+        /// <summary>
+        /// /// Constants used in the output marks method, number of students
+        /// </summary>
+
         public const int NoStudents = 10;
 
         public const int LowestMark = 0;
@@ -21,8 +26,12 @@ namespace ConsoleAppProject.App03
 
         public const string GRADEPROFILE = "See the grade profile";
 
-        // Variables, with get and set method, all public so other classes can use them
-        // Four arrays are used
+        
+
+        /// <summary>
+        /// Variables, with get and set method, all public so other classes can use them
+        /// Four arrays are used
+        /// </summary>
         public string[] Students;
         public int[] Marks;
         public int[] GradeProfile;
@@ -34,8 +43,9 @@ namespace ConsoleAppProject.App03
 
         public string options;
 
-
-        //Constructor for student names array
+        /// <summary>
+        /// Constructor for student names array
+        /// </summary>
         public StudentGrades()
         {
             Students = new string[]
@@ -46,9 +56,10 @@ namespace ConsoleAppProject.App03
             Marks = new int[Students.Length];
         }
 
-        // Methods
-
-        // Display menu, calls DisplayChoices to show the user the menu
+        /// <summary>
+        /// Methods
+        /// Display menu, calls DisplayChoices to show the user the menu
+        /// </summary>
         public void UserSelect()
         {
             bool carryOn = true;
@@ -67,7 +78,9 @@ namespace ConsoleAppProject.App03
             Quit();
         }
 
-        // Lets the user choose which of the four methods to do
+        /// <summary>
+        /// Lets the user choose which of the four methods to do
+        /// </summary>
         private static string DisplayChoices()
         {
             Console.WriteLine();
@@ -84,8 +97,9 @@ namespace ConsoleAppProject.App03
 
             return choice;
         }
-
-        // Executes the users decision
+        /// <summary>
+        /// Executes the users decision
+        /// </summary>
         private void ExecuteChoices(string choice)
         {
             if (choice.Equals("1"))
@@ -113,14 +127,17 @@ namespace ConsoleAppProject.App03
                 Quit();
             }
         }
-
-        // Quits the program
+        /// <summary>
+        /// Quits the program
+        /// </summary>
         public void Quit()
         {
             Environment.Exit(0);
         }
 
-        // Allows the user to input the marks for each of the ten students
+        /// <summary>
+        /// Allows the user to input the marks for each of the ten students
+        /// </summary>
         public string InputMarks()
         {
             int mark;
@@ -141,8 +158,9 @@ namespace ConsoleAppProject.App03
             return choice;
         }
 
-        // Outputs the users marks for each of the ten students
-        // student, mark, Grades. students array only has names, marks array only has marks
+        /// <summary>
+        /// Outputs the users marks for each of the ten students. student, mark, Grades. students array only has names, marks array only has marks
+        /// </summary>
         public void OutputMarks()
         {
             ConsoleHelper.OutputTitle(" Listing of Student Marks >");
@@ -152,7 +170,9 @@ namespace ConsoleAppProject.App03
             }
         }
 
-        // Converts each mark for each student into a grade
+        /// <summary>
+        /// Converts each mark for each student into a grade
+        /// </summary>
         public Grades ConvertToGrade(int mark)
         {
             if (mark >= 0 && mark < LowestGradeD)
@@ -169,7 +189,10 @@ namespace ConsoleAppProject.App03
                 return Grades.X;
         }
 
-        // Calculates the mean total for each student
+
+        /// <summary>
+        /// Calculates the mean total for each student
+        /// </summary>
         public void CalculateStats()
         {
             Minimum = Marks[0];
@@ -186,7 +209,9 @@ namespace ConsoleAppProject.App03
             Mean = total / Marks.Length;
         }
 
-        // outputs the 3 methods inside
+        /// <summary>
+        /// Outputs the 3 methods inside
+        /// </summary>
         public void OutputStats()
         {
             OutputMean();
@@ -194,7 +219,9 @@ namespace ConsoleAppProject.App03
             OutputMax();
         }
 
-        // Calculates the grade profile for each student
+        /// <summary>
+        /// Calculates the grade profile for each student
+        /// </summary>
         public void CalculateGradeProfile()
         {
             for (int i = 0; i < GradeProfile.Length; i++)
@@ -209,8 +236,9 @@ namespace ConsoleAppProject.App03
             OutputGradeProfile();
         }
 
-
-        // Outputs the grade profile for each student
+        /// <summary>
+        /// Outputs the grade profile for each student
+        /// </summary>
         private void OutputGradeProfile()
         {
             ConsoleHelper.OutputHeading("Grade Profile");
@@ -226,8 +254,9 @@ namespace ConsoleAppProject.App03
             Console.WriteLine();
         }
 
-
-        // Outputs mean average, uses the console helper for the title
+        /// <summary>
+        /// Outputs mean average, uses the console helper for the title
+        /// </summary>
         private void OutputMean()
         {
             ConsoleHelper.OutputTitle(" The mean average mark is >");
@@ -235,7 +264,9 @@ namespace ConsoleAppProject.App03
             Console.WriteLine($"{Mean}");
         }
 
-        // Outputs maximum mark, uses the console helper for the title
+        /// <summary>
+        /// Outputs maximum mark, uses the console helper for the title
+        /// </summary>
         private void OutputMax()
         {
             ConsoleHelper.OutputTitle(" The highest mark is >");
@@ -244,7 +275,10 @@ namespace ConsoleAppProject.App03
             Console.WriteLine();
         }
 
-        // Outputs lowest mark, uses the console helper for the title
+
+        /// <summary>
+        /// Outputs lowest mark, uses the console helper for the title
+        /// </summary>
         private void OutputMin()
         {
             ConsoleHelper.OutputTitle(" The lowest mark is >");
