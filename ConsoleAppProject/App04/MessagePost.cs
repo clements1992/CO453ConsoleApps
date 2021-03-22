@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace ConsoleAppProject.App04
 {
@@ -36,8 +35,13 @@ namespace ConsoleAppProject.App04
         public MessagePost(String author, String text): base(author)
         {
             Message = text;
-
-
         }
+
+        public override void Display()
+        {
+            Console.WriteLine($"     Message: {Message}");
+            base.Display();
+        }
+
     }
 }

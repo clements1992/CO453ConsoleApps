@@ -1,6 +1,7 @@
 ﻿using ConsoleAppProject.App01;
 using ConsoleAppProject.App02;
 using ConsoleAppProject.App03;
+using ConsoleAppProject.App04;
 using System;
 
 namespace ConsoleAppProject
@@ -15,6 +16,9 @@ namespace ConsoleAppProject
     /// </summary>
     public static class Program
     {
+
+        private static NetworkApp App04 = new NetworkApp();
+
         public static void Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -53,7 +57,7 @@ namespace ConsoleAppProject
 
             else if (choice == "4")
             {
-                throw new Exception();
+                App04.DisplayMenu();
             }
 
             else if (choice == "5")
