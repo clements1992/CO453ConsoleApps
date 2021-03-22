@@ -20,6 +20,7 @@ namespace ConsoleAppProject
             Console.ForegroundColor = ConsoleColor.Yellow;
             
             Console.WriteLine("BNU CO453 Applications Programming 2020-2021!");
+            Console.WriteLine();
             Console.WriteLine("1. Distance Converter");
             Console.WriteLine("2. BMI Calculator");
             Console.WriteLine("3. Student Grades");

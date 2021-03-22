@@ -12,7 +12,7 @@ namespace ConsoleAppProject.App03
     public class StudentGrades
     {
         /// <summary>
-        /// /// Constants used in the output marks method, number of students
+        /// Constants used in the output marks method, number of students
         /// </summary>
 
         public const int NoStudents = 10;
@@ -25,8 +25,6 @@ namespace ConsoleAppProject.App03
         public const int LowestGradeA = 70;
 
         public const string GRADEPROFILE = "See the grade profile";
-
-        
 
         /// <summary>
         /// Variables, with get and set method, all public so other classes can use them
