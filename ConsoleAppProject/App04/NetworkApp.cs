@@ -55,8 +55,27 @@ namespace ConsoleAppProject.App04
 
         private void DisplayFromUser()
         {
-            throw new NotImplementedException();
+            Console.WriteLine(" Which user do you want to see mentions from > ");
+            string name = Console.ReadLine();
+            if (name.Contains("much") == true)
+            {
+                Console.WriteLine("Word found!");
+            }
+            else
+            {
+                Console.WriteLine("Word not found!");
+            }
         }
+
+        //Console.WriteLine(" Which user do you want to see mentions from > ");
+       //     string search = Console.ReadLine();
+       //     if (str.Contains(search))
+       //     {
+       //         Console.WriteLine(search);
+       //     }
+       //     else
+            
+        
 
         private void DisplayAll()
         {
