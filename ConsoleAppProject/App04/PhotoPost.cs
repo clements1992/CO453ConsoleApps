@@ -13,7 +13,7 @@ namespace ConsoleAppProject.App04
     /// Michael Kölling and David J. Barnes
     /// @version 0.1
     /// </author>
-    public class PhotoPost
+    public class PhotoPost: Post
     {
 
 
@@ -37,55 +37,13 @@ namespace ConsoleAppProject.App04
         /// <param name="filename">
         /// The filename of the image in this post.
         /// </param>
-        public PhotoPost(String author, String filename, String caption)
+        public PhotoPost(String author, String filename, String caption) : base(author)
         {
 
             this.Filename = filename;
             this.Caption = caption;
 
         }
-
-
-
-
-
-
-        ///<summary>
-        /// Display the details of this post.
-        /// 
-        /// (Currently: Print to the text terminal. This is simulating display 
-        /// in a web browser for now.)
-        ///</summary>
-        public void Display()
-        {
-            Console.WriteLine();
-            Console.WriteLine($"    Author: {Username}");
-            Console.WriteLine($"    Filename: [{Filename}]");
-            Console.WriteLine($"    Caption: {Caption}");
-            Console.WriteLine($"    Time Elpased: {FormatElapsedTime(Timestamp)}");
-            Console.WriteLine();
-
-            if (likes > 0)
-            {
-                Console.WriteLine($"    Likes: -  {likes}  people like this.");
-            }
-            else
-            {
-                Console.WriteLine();
-            }
-
-            if (comments.Count == 0)
-            {
-                Console.WriteLine("    No comments.");
-            }
-            else
-            {
-                Console.WriteLine($"    Comment(s): {comments.Count}  Click here to view.");
-            }
-        }
-
-
-
     }
 
 }

@@ -12,7 +12,11 @@ namespace ConsoleAppProject.App04
     /// Michael Kölling and David J. Barnes
     /// version 0.1
     /// </author>
-    public class MessagePost
+    /// 
+
+
+    /// Links the messagepost class to the class post - the messagepost is a type of post
+    public class MessagePost : Post
     {
         
         // an arbitrarily long, multi-line message
@@ -29,51 +33,11 @@ namespace ConsoleAppProject.App04
         /// <param name="text">
         /// The text of this post.
         /// </param>
-        public MessagePost(String author, String text)
+        public MessagePost(String author, String text): base(author)
         {
             Message = text;
 
 
         }
-
-  
-
-  
-
-
-        ///<summary>
-        /// Display the details of this post.
-        /// 
-        /// (Currently: Print to the text terminal. This is simulating display 
-        /// in a web browser for now.)
-        ///</summary>
-        public void Display()
-        {
-            Console.WriteLine();
-            Console.WriteLine($"    Author: {Username}");
-            Console.WriteLine($"    Message: {Message}");
-            Console.WriteLine($"    Time Elpased: {FormatElapsedTime(Timestamp)}");
-            Console.WriteLine();
-
-            if (likes > 0)
-            {
-                Console.WriteLine($"    Likes:  {likes}  people like this.");
-            }
-            else
-            {
-                Console.WriteLine();
-            }
-
-            if (comments.Count == 0)
-            {
-                Console.WriteLine("    No comments.");
-            }
-            else
-            {
-                Console.WriteLine($"    {comments.Count}  comment(s). Click here to view.");
-            }
-        }
-
-        
     }
 }
