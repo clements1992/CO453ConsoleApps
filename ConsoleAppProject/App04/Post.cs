@@ -13,15 +13,22 @@ namespace ConsoleAppProject.App04
 
 		public DateTime Timestamp { get; }
 
-		public Post(string author)
+
+        public int PostId { get; }
+        public static int instances = 0;
+
+        public Post(string author)
         {
+            instances++;
+            PostId = instances;
+
 			this.Username = author;
 			Timestamp = DateTime.Now;
 
 			likes = 0;
 			comments = new List<String>();
 
-		}
+        }
 
         /// <summary>
         /// Record one more 'Like' indication from a user.
@@ -116,5 +123,52 @@ namespace ConsoleAppProject.App04
                 return seconds + " seconds ago";
             }
         }
+
+
+        public void InteractionMenu()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Like");
+            Console.WriteLine("Unlike");
+            Console.WriteLine("Comment");
+            Console.WriteLine("Delete");
+            Console.WriteLine("Quit");
+            Console.WriteLine();
+
+            Console.WriteLine();
+            string choice = Console.ReadLine();
+
+            //return choice;
+        }
+
+        public void Execute(string choice)
+        {
+
+            if (choice.Equals("1"))
+            {
+                
+            }
+
+            else if (choice.Equals("2"))
+            {
+                
+            }
+
+            else if (choice.Equals("3"))
+            {
+                
+            }
+
+            else if (choice.Equals("4"))
+            {
+                
+            }
+
+            else if (choice.Equals("5"))
+            {
+                
+            }
+        }
+
     }
 }
