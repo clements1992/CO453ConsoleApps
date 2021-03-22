@@ -15,7 +15,7 @@ namespace ConsoleAppProject.App04
 
             string[] choices = new string[]
             {
-                "Post Message", "Post Image", "" + "Display All Posts", "Display Posts by Author", "Display by Date",
+                "Post Message", "Post Image", "Display All Posts", "Display Posts by Author", "Display by Date",
                  "Display All Interacted-with Posts", "Remove a Post", "Quit"
             };
 
@@ -40,7 +40,11 @@ namespace ConsoleAppProject.App04
 
         private void RemovePost()
         {
-            throw new NotImplementedException();
+            ConsoleHelper.OutputTitle($" Removing a Post: ");
+
+            int id = (int)ConsoleHelper.InputNumber(" Please enter the post ID > ",
+                                            1, Post.GetNumberOfPosts());
+            news.RemovePost(id);
         }
 
         private void DisplayInteractions()
@@ -55,6 +59,7 @@ namespace ConsoleAppProject.App04
 
         private void DisplayFromUser()
         {
+            ConsoleHelper.OutputHeading(" View posts from a specific user: ");
             Console.WriteLine(" Which user do you want to see mentions from > ");
             string name = Console.ReadLine();
             if (name.Contains(name) == true)
@@ -64,7 +69,7 @@ namespace ConsoleAppProject.App04
             }
             else
             {
-                Console.WriteLine("Word not found!");
+                Console.WriteLine("User not found");
                 Console.WriteLine();
             }
         }
@@ -73,6 +78,7 @@ namespace ConsoleAppProject.App04
         /// </summary>
         private void DisplayAll()
         {
+            ConsoleHelper.OutputHeading(" Display Feed: ");
             news.Display();
             Console.WriteLine();
         }
@@ -105,7 +111,7 @@ namespace ConsoleAppProject.App04
         /// </summary>
         private void PostMessage()
         {
-            Console.WriteLine("Post a Message");
+            ConsoleHelper.OutputHeading(" Post a message: ");
 
             string author = InputName();
             

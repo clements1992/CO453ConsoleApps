@@ -58,6 +58,34 @@ namespace ConsoleAppProject.App04
             posts.Add(photo);
         }
 
+        public void RemovePost(int id)
+        {
+            Post post = FindPost(id);
+
+            if (post == null)
+            {
+                Console.WriteLine($" Post with ID > {id} does not exist");
+            }
+            else
+            {
+                Console.WriteLine($" The Post {id} has been removed ");
+
+                posts.Remove(post);
+                post.Display();
+
+            }
+        }
+
+        public Post FindPost(int id)
+        {
+            foreach(Post post in posts)
+            {
+                if(post.PostId == id)
+                { return post;  }
+            }
+            return null;
+        }
+
         ///<summary>
         /// Show the news feed. Currently: print the news feed details to the
         /// terminal. (To do: replace this later with display in web browser.)

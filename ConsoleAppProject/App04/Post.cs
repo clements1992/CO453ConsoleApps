@@ -15,7 +15,7 @@ namespace ConsoleAppProject.App04
 
 
         public int PostId { get; }
-        public static int instances = 0;
+        private static int instances = 0;
 
         public Post(string author)
         {
@@ -28,6 +28,11 @@ namespace ConsoleAppProject.App04
             likes = 0;
             comments = new List<String>();
 
+        }
+
+        public void GetNumberOfPosts()
+        {
+            instances;
         }
 
         /// <summary>
