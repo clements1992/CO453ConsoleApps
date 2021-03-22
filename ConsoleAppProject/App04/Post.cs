@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 namespace ConsoleAppProject.App04
 {
-	public class Post
-	{
-		private int likes;
+    public class Post
+    {
+        private int likes;
 
-		private readonly List<String> comments;
+        private readonly List<String> comments;
 
-		// username of the post's author
-		public String Username { get; }
+        // username of the post's author
+        public String Username { get; }
 
-		public DateTime Timestamp { get; }
+        public DateTime Timestamp { get; }
 
 
         public int PostId { get; }
@@ -22,11 +22,11 @@ namespace ConsoleAppProject.App04
             instances++;
             PostId = instances;
 
-			this.Username = author;
-			Timestamp = DateTime.Now;
+            this.Username = author;
+            Timestamp = DateTime.Now;
 
-			likes = 0;
-			comments = new List<String>();
+            likes = 0;
+            comments = new List<String>();
 
         }
 
@@ -124,51 +124,51 @@ namespace ConsoleAppProject.App04
             }
         }
 
-
         public void InteractionMenu()
         {
-            Console.WriteLine();
-            Console.WriteLine("Like");
-            Console.WriteLine("Unlike");
-            Console.WriteLine("Comment");
-            Console.WriteLine("Delete");
-            Console.WriteLine("Quit");
-            Console.WriteLine();
+            ConsoleHelper.OutputHeading(" Please make sure selection: ");
 
-            Console.WriteLine();
-            string choice = Console.ReadLine();
+            string[] choices = new string[]
+            {
+               "like", "Unlike", "Comment", "Skip", "Quit"
+            };
 
-            //return choice;
+            bool wantToQuit = false;
+            do
+            {
+                int choice = ConsoleHelper.SelectChoice(choices);
+
+                switch (choice)
+                {
+                    case 1: LikePost(); break;
+                    case 2: UnlikePost(); break;
+                    case 3: CommentPost(); break;
+                    case 4: Skip(); break;
+                    case 5: wantToQuit = true; break;
+                }
+            } while (!wantToQuit);
+
+
         }
 
-        public void Execute(string choice)
+        private void Skip()
         {
-
-            if (choice.Equals("1"))
-            {
-                
-            }
-
-            else if (choice.Equals("2"))
-            {
-                
-            }
-
-            else if (choice.Equals("3"))
-            {
-                
-            }
-
-            else if (choice.Equals("4"))
-            {
-                
-            }
-
-            else if (choice.Equals("5"))
-            {
-                
-            }
+            throw new NotImplementedException();
         }
 
+        private void CommentPost()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void UnlikePost()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LikePost()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

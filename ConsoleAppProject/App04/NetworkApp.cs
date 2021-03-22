@@ -57,32 +57,29 @@ namespace ConsoleAppProject.App04
         {
             Console.WriteLine(" Which user do you want to see mentions from > ");
             string name = Console.ReadLine();
-            if (name.Contains("much") == true)
+            if (name.Contains(name) == true)
             {
-                Console.WriteLine("Word found!");
+                Console.WriteLine("See below Posts by " + name);
+                Console.WriteLine();
             }
             else
             {
                 Console.WriteLine("Word not found!");
+                Console.WriteLine();
             }
         }
-
-        //Console.WriteLine(" Which user do you want to see mentions from > ");
-       //     string search = Console.ReadLine();
-       //     if (str.Contains(search))
-       //     {
-       //         Console.WriteLine(search);
-       //     }
-       //     else
-            
-        
-
+        /// <summary>
+        /// Displays all posts - completed
+        /// </summary>
         private void DisplayAll()
         {
             news.Display();
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// Allows the user to post an image - completed
+        /// </summary>
         private void PostImage()
         {
             ConsoleHelper.OutputTitle("Post an Image");
@@ -103,6 +100,9 @@ namespace ConsoleAppProject.App04
             post.Display();
         }
 
+        /// <summary>
+        /// Allows the user to post a message - completed
+        /// </summary>
         private void PostMessage()
         {
             Console.WriteLine("Post a Message");
@@ -123,6 +123,10 @@ namespace ConsoleAppProject.App04
 
         }
 
+        /// <summary>
+        /// Links to the post message method and gets the users name
+        /// </summary>
+        /// <returns></returns>
         public string InputName()
         {
             Console.WriteLine("Whats your name > ");
