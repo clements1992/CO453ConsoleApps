@@ -6,17 +6,19 @@ namespace ConsoleAppProject.App04
 {
     public class NetworkApp
     {
-
         private NewsFeed news = new NewsFeed();
 
+        /// <summary>
+        /// This is the primary menu where the user chooses whether to add a post or display all posts
+        /// </summary>
         public void DisplayMenu()
         {
-            ConsoleHelper.OutputHeading(" Alex's Facebook Spin-off ");
+            ConsoleHelper.OutputHeading("   Alex's News Feed");
 
             string[] choices = new string[]
             {
-                "Post Message", "Post Image", "Display All Posts", "Display Posts by Author", "Display by Date",
-                 "Display All Interacted-with Posts", "Remove a Post", "Quit"
+                "Post Message","Post Image",""+
+                "Display All Posts", "Display User post", "Quit"
             };
 
             bool wantToQuit = false;
@@ -29,116 +31,154 @@ namespace ConsoleAppProject.App04
                     case 1: PostMessage(); break;
                     case 2: PostImage(); break;
                     case 3: DisplayAll(); break;
-                    case 4: DisplayFromUser(); break;
-                    case 5: DisplayFromDate(); break;
-                    case 6: DisplayInteractions(); break;
-                    case 7: RemovePost(); break;
-                    case 8: wantToQuit = true; break;
+                    case 4: DisplayByUser(); break;
+                    case 5: wantToQuit = true; break;
                 }
             } while (!wantToQuit);
         }
 
-        private void RemovePost()
-        {
-            ConsoleHelper.OutputTitle($" Removing a Post: ");
-
-            int id = (int)ConsoleHelper.InputNumber(" Please enter the post ID > ",
-                                            1, Post.GetNumberOfPosts());
-            news.RemovePost(id);
-        }
-
-        private void DisplayInteractions()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void DisplayFromDate()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void DisplayFromUser()
-        {
-            ConsoleHelper.OutputHeading(" View posts from a specific user: ");
-            Console.WriteLine(" Which user do you want to see mentions from > ");
-            string name = Console.ReadLine();
-            if (name.Contains(name) == true)
-            {
-                Console.WriteLine("See below Posts by " + name);
-                Console.WriteLine();
-            }
-            else
-            {
-                Console.WriteLine("User not found");
-                Console.WriteLine();
-            }
-        }
         /// <summary>
-        /// Displays all posts - completed
+        /// Displays posts only by a specific user 
+        /// </summary>
+        private void DisplayByUser()
+        {
+            Console.WriteLine("Enter Name of user");
+            string user = Console.ReadLine();
+            news.DisplayByUser(user);
+        }
+
+        /// <summary>
+        /// Displays all the posts and also uses the display menu 
+        /// function to give the user more choices
         /// </summary>
         private void DisplayAll()
         {
-            ConsoleHelper.OutputHeading(" Display Feed: ");
             news.Display();
-            Console.WriteLine();
+            DisplayAllMenu();
         }
 
         /// <summary>
-        /// Allows the user to post an image - completed
+        /// Where the User will post an image by adding their name 
+        /// then the url of the image and then a caption
         /// </summary>
         private void PostImage()
         {
-            ConsoleHelper.OutputTitle("Post an Image");
+            Console.WriteLine("Post an Image");
 
-            Console.WriteLine("Please enter your Name > ");
+            Console.WriteLine("Enter your name > ");
             string author = Console.ReadLine();
 
-            Console.WriteLine("Please enter your image filename > ");
+            Console.WriteLine("Enter image url > ");
             string filename = Console.ReadLine();
 
-            Console.WriteLine("Please enter your image caption > ");
+            Console.WriteLine("Enter Caption > ");
             string caption = Console.ReadLine();
 
             PhotoPost post = new PhotoPost(author, filename, caption);
             news.AddPhotoPost(post);
-
-            ConsoleHelper.OutputTitle("You have posted this image");
-            post.Display();
         }
 
+
         /// <summary>
-        /// Allows the user to post a message - completed
+        /// This is where the user will post a basic text message post
         /// </summary>
         private void PostMessage()
         {
-            ConsoleHelper.OutputHeading(" Post a message: ");
+            Console.WriteLine("Post a Message");
 
-            string author = InputName();
-            
-            // Console.WriteLine("Enter your name > ");
-            // string name = Console.ReadLine();
+            Console.WriteLine("Enter your name > ");
+            string author = Console.ReadLine();
 
             Console.WriteLine("Whats on your mind > ");
-            string message = Console.ReadLine();
+            string text = Console.ReadLine();
 
-            MessagePost post = new MessagePost(author, message);
+            MessagePost post = new MessagePost(author, text);
             news.AddMessagePost(post);
+        }
 
-            ConsoleHelper.OutputTitle("You have posted this message");
-            post.Display();
 
+        /// <summary>
+        /// This is the menu where the user interacts with the posts for example like,
+        /// unlike, comment, remove posts and also allows the usr to go back to the main page
+        /// </summary>
+        public void DisplayAllMenu()
+        {
+            ConsoleHelper.OutputHeading("   Display All Posts By Kian Rozblat");
+
+            string[] choices = new string[]
+            {
+                "Like","Unlike","Comment","Remove","Back to Menu", "Quit"
+            };
+
+            bool wantToQuit = false;
+            do
+            {
+                int choice = ConsoleHelper.SelectChoice(choices);
+
+                switch (choice)
+                {
+                    case 1: Like(); break;
+                    case 2: Unlike(); break;
+                    case 3: Comment(); break;
+                    case 4: Remove(); break;
+                    case 5: DisplayMenu(); break;
+                    case 6: wantToQuit = true; break;
+                }
+            } while (!wantToQuit);
         }
 
         /// <summary>
-        /// Links to the post message method and gets the users name
+        /// Removes a specific post that is chosen by the post id
         /// </summary>
-        /// <returns></returns>
-        public string InputName()
+        private void Remove()
         {
-            Console.WriteLine("Whats your name > ");
-            string author = Console.ReadLine();
+            ConsoleHelper.OutputHeading("Removing a Post");
 
-            return author;
+            int id = (int)ConsoleHelper.InputNumber(" Please enter the post id > ", 1, Post.GetNumberOfPosts());
+            news.RemovePost(id);
+        }
+
+        /// <summary>
+        /// where the user adds a Comment onto a post
+        /// </summary>
+        private void Comment()
+        {
+            Console.WriteLine("Comment on a Post");
+            Post post = FindPost();
+            post.Display();
+            Console.WriteLine("Please Enter your Comment");
+            string comment = Console.ReadLine();
+            post.AddComment(comment);
+        }
+
+        /// <summary>
+        /// Where the user can unlike a previously liked post
+        /// </summary>
+        private void Unlike()
+        {
+            Console.WriteLine("Unlike a Post");
+            Post post = FindPost();
+            post.Unlike();
+        }
+
+        /// <summary>
+        /// Where the user can like a post
+        /// </summary>
+        private void Like()
+        {
+            Console.WriteLine("Like a Post");
+            Post post = FindPost();
+            post.Like();
+        }
+
+        /// <summary>
+        /// Finds the specific post from the id entered from the user
+        /// </summary>
+        public Post FindPost()
+        {
+            int postID;
+            postID = (int)ConsoleHelper.InputNumber("Please Enter Post ID > ");
+            return news.FindPost(postID);
         }
     }
 }

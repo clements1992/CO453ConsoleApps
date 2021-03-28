@@ -1,42 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
+
 namespace ConsoleAppProject.App04
 {
+    [Serializable]
     public class Post
     {
-        private int likes;
-
+        public int likes;
+        public int PostID;
+        private static int instances = 0;
         private readonly List<String> comments;
 
-        // username of the post's author
-        public String Username { get; }
-
         public DateTime Timestamp { get; }
-
-
-        public int PostId { get; }
-        private static int instances = 0;
+        public String Username { get; }
 
         public Post(string author)
         {
             instances++;
-            PostId = instances;
-
+            PostID = instances;
             this.Username = author;
             Timestamp = DateTime.Now;
-
             likes = 0;
             comments = new List<String>();
-
-        }
-
-        public void GetNumberOfPosts()
-        {
-            instances;
         }
 
         /// <summary>
-        /// Record one more 'Like' indication from a user.
+        /// When the user has selected the post and chose the like option it will count the extra likes
         /// </summary>
         public void Like()
         {
@@ -44,7 +34,7 @@ namespace ConsoleAppProject.App04
         }
 
         ///<summary>
-        /// Record that a user has withdrawn his/her 'Like' vote.
+        ///Shows when a user has undone their like 
         ///</summary>
         public void Unlike()
         {
@@ -56,48 +46,10 @@ namespace ConsoleAppProject.App04
 
         ///<summary>
         /// Add a comment to this post.
-        /// </summary>
-        /// <param name="text">
-        /// The new comment to add.
-        /// </param>        
+        /// </summary>       
         public void AddComment(String text)
         {
             comments.Add(text);
-        }
-
-
-        ///<summary>
-        /// Display the details of this post.
-        /// 
-        /// (Currently: Print to the text terminal. This is simulating display 
-        /// in a web browser for now.)
-        ///</summary>
-        ///
-        public virtual void Display()
-        {
-            Console.WriteLine();
-            Console.WriteLine($"    Author: {Username}");
-
-            Console.WriteLine($"    Time Elpased: {FormatElapsedTime(Timestamp)}");
-            Console.WriteLine();
-
-            if (likes > 0)
-            {
-                Console.WriteLine($"    Likes:  {likes}  people like this.");
-            }
-            else
-            {
-                Console.WriteLine();
-            }
-
-            if (comments.Count == 0)
-            {
-                Console.WriteLine("    No comments.");
-            }
-            else
-            {
-                Console.WriteLine($"    {comments.Count}  comment(s). Click here to view.");
-            }
         }
 
         ///<summary>
@@ -105,12 +57,6 @@ namespace ConsoleAppProject.App04
         /// relative to current time, such as "30 seconds ago" or "7 minutes ago".
         /// Currently, only seconds and minutes are used for the string.
         /// </summary>
-        /// <param name="time">
-        ///  The time value to convert (in system milliseconds)
-        /// </param> 
-        /// <returns>
-        /// A relative time string for the given time
-        /// </returns>      
         private String FormatElapsedTime(DateTime time)
         {
             DateTime current = DateTime.Now;
@@ -129,51 +75,43 @@ namespace ConsoleAppProject.App04
             }
         }
 
-        public void InteractionMenu()
+        ///<summary>
+        /// Display the details of this post.
+        ///</summary>
+        public virtual void Display()
         {
-            ConsoleHelper.OutputHeading(" Please make sure selection: ");
+            Console.WriteLine();
+            Console.WriteLine($"    Post Id: {PostID}");
+            Console.WriteLine($"    Author: {Username}");
+            Console.WriteLine($"    Time Elpased: {FormatElapsedTime(Timestamp)}");
+            Console.WriteLine();
 
-            string[] choices = new string[]
+            if (likes > 0)
             {
-               "like", "Unlike", "Comment", "Skip", "Quit"
-            };
-
-            bool wantToQuit = false;
-            do
+                Console.WriteLine($"    Likes:  {likes}  people like this.");
+            }
+            else
             {
-                int choice = ConsoleHelper.SelectChoice(choices);
+                Console.WriteLine();
+            }
 
-                switch (choice)
-                {
-                    case 1: LikePost(); break;
-                    case 2: UnlikePost(); break;
-                    case 3: CommentPost(); break;
-                    case 4: Skip(); break;
-                    case 5: wantToQuit = true; break;
-                }
-            } while (!wantToQuit);
-
-
+            if (comments.Count == 0)
+            {
+                Console.WriteLine("    No comments.");
+            }
+            else
+            {
+                Console.WriteLine($"    {comments.Count}  comment(s). ");
+            }
         }
 
-        private void Skip()
+        /// <summary>
+        /// Returns the amount of posts
+        /// </summary>
+        /// <returns></returns>
+        public static int GetNumberOfPosts()
         {
-            throw new NotImplementedException();
-        }
-
-        private void CommentPost()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void UnlikePost()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void LikePost()
-        {
-            throw new NotImplementedException();
+            return instances;
         }
     }
 }
