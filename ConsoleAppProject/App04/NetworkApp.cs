@@ -42,7 +42,7 @@ namespace ConsoleAppProject.App04
         /// </summary>
         private void DisplayByUser()
         {
-            Console.WriteLine("Enter Name of user");
+            Console.WriteLine("Enter Name of user > ");
             string user = Console.ReadLine();
             news.DisplayByUser(user);
         }
@@ -103,7 +103,7 @@ namespace ConsoleAppProject.App04
         /// </summary>
         public void DisplayAllMenu()
         {
-            ConsoleHelper.OutputHeading("   Display All Posts By Kian Rozblat");
+            ConsoleHelper.OutputHeading("   Display All Posts By Alex Clements");
 
             string[] choices = new string[]
             {
